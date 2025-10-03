@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xác nhận đơn hàng</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; background-color: #f5f5f5; }
+        .container { max-width: 600px; margin: 0 auto; background-color: #ffffff; }
+        .header { background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%); color: white; padding: 30px 20px; text-align: center; }
+        .header h1 { font-size: 28px; margin-bottom: 5px; }
+        .header .icon { font-size: 48px; margin-bottom: 10px; }
+        .content { padding: 30px 20px; }
+        .success-badge { background-color: #10b981; color: white; padding: 12px 24px; border-radius: 50px; display: inline-block; font-weight: bold; margin-bottom: 20px; }
+        .order-info { background: #f9fafb; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #4f46e5; }
+        .order-info h3 { color: #4f46e5; margin-bottom: 15px; font-size: 18px; }
+        .info-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #e5e7eb; }
+        .info-row:last-child { border-bottom: none; }
+        .info-label { color: #6b7280; font-size: 14px; }
+        .info-value { font-weight: 600; color: #111827; }
+        .items-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .items-table th { background-color: #f3f4f6; padding: 12px; text-align: left; font-size: 14px; color: #374151; }
+        .items-table td { padding: 12px; border-bottom: 1px solid #e5e7eb; }
+        .total-section { background: #4f46e5; color: white; padding: 20px; border-radius: 8px; margin: 20px 0; text-align: center; }
+        .total-amount { font-size: 32px; font-weight: bold; margin: 10px 0; }
+        .button { display: inline-block; padding: 14px 32px; background: #4f46e5; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; margin: 20px 0; }
+        .button:hover { background: #4338ca; }
+        .footer { background: #1f2937; color: #9ca3af; padding: 30px 20px; text-align: center; font-size: 14px; }
+        .footer-links { margin: 15px 0; }
+        .footer-links a { color: #60a5fa; text-decoration: none; margin: 0 10px; }
+        .divider { height: 2px; background: linear-gradient(to right, transparent, #e5e7eb, transparent); margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="icon">📱</div>
+            <h1>Phone Store</h1>
+            <p>Cảm ơn bạn đã tin tưởng</p>
+        </div>
+        
+        <!-- Content -->
+        <div class="content">
+            <div style="text-align: center;">
+                <span class="success-badge">✅ ĐẶT HÀNG THÀNH CÔNG</span>
+            </div>
+            
+            <p style="font-size: 16px; margin: 20px 0;">
+                Xin chào <strong th:text="${order.recipientName}">Khách hàng</strong>,
+            </p>
+            
+            <p style="color: #6b7280; margin-bottom: 20px;">
+                Cảm ơn bạn đã đặt hàng tại <strong>Phone Store</strong>! 
+                Đơn hàng của bạn đã được tiếp nhận và đang được xử lý.
+            </p>
+
+            <div class="divider"></div>
+            
+            <!-- Order Info -->
+            <div class="order-info">
+                <h3>📋 Thông tin đơn hàng</h3>
+                <div class="info-row">
+                    <span class="info-label">Mã đơn hàng:</span>
+                    <span class="info-value" th:text="${order.orderCode}">ORD20250101001</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Ngày đặt:</span>
+                    <span class="info-value" th:text="${#temporals.format(order.createdAt, 'dd/MM/yyyy HH:mm')}">02/10/2025 14:30</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Thanh toán:</span>
+                    <span class="info-value" th:text="${order.paymentMethod == 'COD' ? 'Thanh toán khi nhận hàng' : 'PayPal'}">COD</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Trạng thái:</span>
+                    <span class="info-value" style="color: #10b981;">Đang xử lý</span>
+                </div>
+            </div>
+
+            <!-- Shipping Info -->
+            <div class="order-info">
+                <h3>🚚 Thông tin giao hàng</h3>
+                <div class="info-row">
+                    <span class="info-label">Người nhận:</span>
+                    <span class="info-value" th:text="${order.recipientName}">Nguyễn Văn A</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Số điện thoại:</span>
+                    <span class="info-value" th:text="${order.recipientPhone}">0123456789</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Địa chỉ:</span>
+                    <span class="info-value" th:text="${order.shippingAddress}">123 Nguyễn Huệ, Q1, TPHCM</span>
+                </div>
+            </div>
+
+            <!-- Order Items -->
+            <h3 style="margin: 30px 0 15px 0; color: #111827;">🛒 Sản phẩm đã đặt</h3>
+            <table class="items-table">
+                <thead>
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th style="text-align: center;">SL</th>
+                        <th style="text-align: right;">Thành tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="item : ${orderItems}">
+                        <td>
+                            <strong th:text="${item.productName}">iPhone 15 Pro Max</strong>
+                            <br>
+                            <small style="color: #6b7280;" th:text="${#numbers.formatDecimal(item.price, 0, 'COMMA', 0, 'POINT')} + ' VNĐ'">34.990.000 VNĐ</small>
+                        </td>
+                        <td style="text-align: center;" th:text="${item.quantity}">1</td>
+                        <td style="text-align: right; font-weight: 600;" th:text="${#numbers.formatDecimal(item.subtotal, 0, 'COMMA', 0, 'POINT')} + ' VNĐ'">34.990.000 VNĐ</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Total -->
+            <div class="total-section">
+                <div style="font-size: 16px; opacity: 0.9;">Tổng thanh toán</div>
+                <div class="total-amount" th:text="${#numbers.formatDecimal(order.totalPrice, 0, 'COMMA', 0, 'POINT')} + ' VNĐ'">34.990.000 VNĐ</div>
+                <div style="font-size: 14px; opacity: 0.8;">Đã bao gồm VAT</div>
+            </div>
+
+            <!-- Action Button -->
+            <div style="text-align: center;">
+                <a th:href="${baseUrl + '/orders/' + order.id}" class="button">
+                    Theo dõi đơn hàng →
+                </a>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Note -->
+            <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 15px; border-radius: 4px; margin: 20px 0;">
+                <p style="color: #92400e; margin: 0;">
+                    <strong>📌 Lưu ý:</strong> Chúng tôi sẽ liên hệ với bạn trong vòng 24h để xác nhận đơn hàng. 
+                    Nếu có thắc mắc, vui lòng liên hệ hotline: <strong>1900-xxxx</strong>
+                </p>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p style="font-size: 16px; color: #ffffff; margin-bottom: 10px;">
+                <strong>📱 Phone Store</strong>
+            </p>
+            <p style="margin: 10px 0;">Điện thoại chính hãng - Giá tốt nhất thị trường</p>
+            
+            <div class="footer-links">
+                <a href="#">Chính sách bảo hành</a>
+                <a href="#">Chính sách đổi trả</a>
+                <a href="#">Liên hệ</a>
+            </div>
+            
+            <p style="margin-top: 20px; font-size: 12px;">
+                © 2025 Phone Store. All rights reserved.<br>
+                📍 123 Nguyễn Huệ, Q1, TPHCM | ☎️ 1900-xxxx | ✉️ support@phonestore.com
+            </p>
+        </div>
+    </div>
+</body>
+</html>

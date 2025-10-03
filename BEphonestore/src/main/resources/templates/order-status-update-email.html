@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Cập nhật đơn hàng - Phone Store</title>
+    <style>
+        /* Reset Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        table {
+            border-collapse: collapse;
+        }
+        
+        img {
+            border: 0;
+            outline: none;
+            text-decoration: none;
+            display: block;
+        }
+        
+        /* Container */
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            color: #ffffff;
+            font-size: 32px;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+        }
+        
+        .header p {
+            color: #e0e7ff;
+            font-size: 18px;
+            margin: 0;
+        }
+        
+        /* Content */
+        .content {
+            padding: 40px 30px;
+            background-color: #ffffff;
+        }
+        
+        .greeting {
+            font-size: 18px;
+            color: #1f2937;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .greeting strong {
+            color: #4f46e5;
+        }
+        
+        /* Status Box */
+        .status-box {
+            background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
+            border: 3px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 35px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .status-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+        
+        .status-label {
+            font-size: 14px;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .status-value {
+            font-size: 32px;
+            font-weight: 800;
+            margin: 15px 0;
+            line-height: 1.2;
+        }
+        
+        .status-description {
+            font-size: 16px;
+            color: #4b5563;
+            line-height: 1.6;
+            margin-top: 15px;
+        }
+        
+        /* Status Colors */
+        .status-pending {
+            color: #f59e0b;
+            border-color: #fbbf24;
+            background: linear-gradient(135deg, #fef3c7 0%, #ffffff 100%);
+        }
+        
+        .status-confirmed {
+            color: #3b82f6;
+            border-color: #60a5fa;
+            background: linear-gradient(135deg, #dbeafe 0%, #ffffff 100%);
+        }
+        
+        .status-processing {
+            color: #8b5cf6;
+            border-color: #a78bfa;
+            background: linear-gradient(135deg, #ede9fe 0%, #ffffff 100%);
+        }
+        
+        .status-shipping {
+            color: #6366f1;
+            border-color: #818cf8;
+            background: linear-gradient(135deg, #e0e7ff 0%, #ffffff 100%);
+        }
+        
+        .status-delivered {
+            color: #10b981;
+            border-color: #34d399;
+            background: linear-gradient(135deg, #d1fae5 0%, #ffffff 100%);
+        }
+        
+        .status-completed {
+            color: #059669;
+            border-color: #10b981;
+            background: linear-gradient(135deg, #d1fae5 0%, #ffffff 100%);
+        }
+        
+        .status-cancelled {
+            color: #ef4444;
+            border-color: #f87171;
+            background: linear-gradient(135deg, #fee2e2 0%, #ffffff 100%);
+        }
+        
+        /* Info Box */
+        .info-box {
+            background-color: #f9fafb;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        
+        .info-box h3 {
+            color: #1f2937;
+            font-size: 18px;
+            margin: 0 0 15px 0;
+            font-weight: 600;
+        }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .info-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .info-label {
+            color: #6b7280;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .info-value {
+            color: #1f2937;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: right;
+        }
+        
+        /* Timeline */
+        .timeline {
+            margin: 30px 0;
+        }
+        
+        .timeline h3 {
+            color: #1f2937;
+            font-size: 18px;
+            margin: 0 0 20px 0;
+            font-weight: 600;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 35px;
+            padding-bottom: 25px;
+            border-left: 2px solid #e5e7eb;
+        }
+        
+        .timeline-item:last-child {
+            border-left: 2px solid transparent;
+            padding-bottom: 0;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            background-color: #4f46e5;
+            border-radius: 50%;
+        }
+        
+        .timeline-dot.active {
+            width: 14px;
+            height: 14px;
+            left: -8px;
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.2);
+        }
+        
+        .timeline-content {
+            background-color: #f9fafb;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .timeline-title {
+            color: #1f2937;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-time {
+            color: #6b7280;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+        
+        .timeline-desc {
+            color: #4b5563;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        /* Button */
+        .button-container {
+            text-align: center;
+            margin: 35px 0;
+        }
+        
+        .button {
+            display: inline-block;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        }
+        
+        .button:hover {
+            box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        /* Alert */
+        .alert {
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+            border-left: 4px solid;
+        }
+        
+        .alert-success {
+            background-color: #d1fae5;
+            border-color: #10b981;
+        }
+        
+        .alert-success p {
+            margin: 0;
+            color: #065f46;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        .alert-info {
+            background-color: #dbeafe;
+            border-color: #3b82f6;
+        }
+        
+        .alert-info p {
+            margin: 0;
+            color: #1e40af;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #1f2937;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .footer p {
+            color: #9ca3af;
+            font-size: 14px;
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        
+        .footer strong {
+            color: #ffffff;
+            font-size: 16px;
+        }
+        
+        .footer-links {
+            margin-top: 20px;
+        }
+        
+        .footer-links a {
+            color: #6366f1;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media only screen and (max-width: 600px) {
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 26px;
+            }
+            
+            .status-box {
+                padding: 25px 20px;
+            }
+            
+            .status-value {
+                font-size: 24px;
+            }
+            
+            .status-icon {
+                font-size: 48px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+            <td align="center" style="padding: 20px 0;">
+                <table class="email-container" role="presentation" width="600" cellspacing="0" cellpadding="0" border="0">
+                    
+                    <!-- Header -->
+                    <tr>
+                        <td class="header">
+                            <h1>📱 Phone Store</h1>
+                            <p>Cập nhật đơn hàng</p>
+                        </td>
+                    </tr>
+                    
+                    <!-- Content -->
+                    <tr>
+                        <td class="content">
+                            
+                            <!-- Greeting -->
+                            <p class="greeting">
+                                Xin chào <strong th:text="${order.user.fullName}">Khách hàng</strong>,
+                            </p>
+                            
+                            <p class="greeting">
+                                Đơn hàng <strong th:text="${order.orderCode}">ORD20250101001</strong> của bạn đã được cập nhật trạng thái.
+                            </p>
+                            
+                            <!-- Status Box - PENDING -->
+                            <div th:if="${order.status.name() == 'PENDING'}" class="status-box status-pending">
+                                <div class="status-icon">⏳</div>
+                                <div class="status-label">Trạng thái hiện tại</div>
+                                <div class="status-value">Chờ xác nhận</div>
+                                <div class="status-description">
+                                    Đơn hàng của bạn đang chờ được xác nhận từ chúng tôi. 
+                                    Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.
+                                </div>
+                            </div>
+                            
+                            <!-- Status Box - CONFIRMED -->
+                            <div th:if="${order.status.name() == 'CONFIRMED'}" class="status-box status-confirmed">
+                                <div class="status-icon">✅</div>
+                                <div class="status-label">Trạng thái hiện tại</div>
+                                <div class="status-value">Đã xác nhận</div>
+                                <div class="status-description">
+                                    Đơn hàng của bạn đã được xác nhận thành công! 
+                                    Chúng tôi đang chuẩn bị hàng cho bạn.
+                                </div>
+                            </div>
+                            
+                            <!-- Status Box - PROCESSING -->
+                            <div th:if="${order.status.name() == 'PROCESSING'}" class="status-box status-processing">
+                                <div class="status-icon">📦</div>
+                                <div class="status-label">Trạng thái hiện tại</div>
+                                <div class="status-value">Đang chuẩn bị hàng</div>
+                                <div class="status-description">
+                                    Đơn hàng của bạn đang được đóng gói cẩn thận. 
+                                    Sản phẩm sẽ sớm được giao cho đơn vị vận chuyển.
+                                </div>
+                            </div>
+                            
+                            <!-- Status Box - SHIPPING -->
+                            <div th:if="${order.status.name() == 'SHIPPING'}" class="status-box status-shipping">
+                                <div class="status-icon">🚚</div>
+                                <div class="status-label">Trạng thái hiện tại</div>
+                                <div class="status-value">Đang giao hàng</div>
+                                <div class="status-description">
+                                    Đơn hàng của bạn đang trên đường giao đến địa chỉ của bạn. 
+                                    Vui lòng chuẩn bị nhận hàng!
+                                </div>
+                            </div>
+                            
+                            <!-- Status Box - DELIVERED -->
+                            <div th:if="${order.status.name() == 'DELIVERED'}" class="status-box status-delivered">
+                                <div class="status-icon">🎉</div>
+                                <div class="status-label">Trạng thái hiện tại</div>
+                                <div class="status-value">Đã giao hàng</div>
+                                <div class="status-description">
+                                    Đơn hàng đã được giao thành công đến địa chỉ của bạn. 
+                                    Cảm ơn bạn đã mua hàng!
+                                </div>
+                            </div>
+                            
+                            <!-- Status Box - COMPLETED -->
+                            <div th:if="${order.status.name() == 'COMPLETED'}" class="status-box status-completed">
+                                <div class="status-icon">🌟</div>
+                                <div class="status-label">Trạng thái hiện tại</div>
+                                <div class="status-value">Hoàn thành</div>
+                                <div class="status-description">
+                                    Đơn hàng đã hoàn thành! Cảm ơn bạn đã tin tưởng Phone Store. 
+                                    Hy vọng được phục vụ bạn lần sau!
+                                </div>
+                            </div>
+                            
+                            <!-- Status Box - CANCELLED -->
+                            <div th:if="${order.status.name() == 'CANCELLED'}" class="status-box status-cancelled">
+                                <div class="status-icon">❌</div>
+                                <div class="status-label">Trạng thái hiện tại</div>
+                                <div class="status-value">Đã hủy</div>
+                                <div class="status-description">
+                                    Đơn hàng của bạn đã bị hủy. Nếu có thắc mắc, vui lòng liên hệ với chúng tôi.
+                                </div>
+                            </div>
+                            
+                            <!-- Order Info -->
+                            <div class="info-box">
+                                <h3>📋 Thông tin đơn hàng</h3>
+                                <div class="info-row">
+                                    <span class="info-label">Mã đơn hàng:</span>
+                                    <span class="info-value" th:text="${order.orderCode}">ORD20250101001</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Ngày đặt:</span>
+                                    <span class="info-value" th:text="${#temporals.format(order.createdAt, 'dd/MM/yyyy HH:mm')}">01/01/2025 10:30</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Tổng tiền:</span>
+                                    <span class="info-value" th:text="${#numbers.formatDecimal(order.totalPrice, 0, 'COMMA', 0, 'POINT')} + ' ₫'">34,990,000 ₫</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Phương thức thanh toán:</span>
+                                    <span class="info-value" th:text="${order.paymentMethod == 'COD' ? 'COD' : 'PayPal'}">COD</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Trạng thái thanh toán:</span>
+                                    <span class="info-value" th:text="${order.paymentStatus == 'PAID' ? 'Đã thanh toán' : 'Chưa thanh toán'}">Chưa thanh toán</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Shipping Info -->
+                            <div class="info-box">
+                                <h3>🚚 Thông tin giao hàng</h3>
+                                <div class="info-row">
+                                    <span class="info-label">Người nhận:</span>
+                                    <span class="info-value" th:text="${order.recipientName}">Nguyễn Văn A</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Số điện thoại:</span>
+                                    <span class="info-value" th:text="${order.recipientPhone}">0987654321</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Địa chỉ:</span>
+                                    <span class="info-value" th:text="${order.shippingAddress}">123 Nguyễn Huệ, Q1, TPHCM</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Alert for COD Delivered -->
+                            <div th:if="${order.status.name() == 'DELIVERED' and order.paymentMethod.name() == 'COD'}" class="alert alert-success">
+                                <p>
+                                    ✅ <strong>Thanh toán thành công!</strong><br>
+                                    Bạn đã thanh toán <strong th:text="${#numbers.formatDecimal(order.totalPrice, 0, 'COMMA', 0, 'POINT')} + ' ₫'">34,990,000 ₫</strong> 
+                                    khi nhận hàng. Cảm ơn bạn!
+                                </p>
+                            </div>
+                            
+                            <!-- Alert for Shipping -->
+                            <div th:if="${order.status.name() == 'SHIPPING'}" class="alert alert-info">
+                                <p>
+                                    📱 <strong>Lưu ý:</strong> Shipper sẽ liên hệ với bạn qua số điện thoại 
+                                    <strong th:text="${order.recipientPhone}">0987654321</strong> trước khi giao hàng.
+                                    Vui lòng để ý điện thoại!
+                                </p>
+                            </div>
+                            
+                            <!-- Timeline (Optional - can be enhanced with actual tracking data) -->
+                            <div class="timeline" th:if="${order.status.name() == 'SHIPPING' or order.status.name() == 'DELIVERED'}">
+                                <h3>📍 Lộ trình giao hàng</h3>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-title">Đơn hàng đã được xác nhận</div>
+                                        <div class="timeline-time" th:text="${#temporals.format(order.createdAt, 'dd/MM/yyyy HH:mm')}">01/01/2025 10:30</div>
+                                        <div class="timeline-desc">Đơn hàng của bạn đã được xác nhận và đang chuẩn bị</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-title">Đang đóng gói sản phẩm</div>
+                                        <div class="timeline-time">01/01/2025 14:00</div>
+                                        <div class="timeline-desc">Sản phẩm đang được đóng gói cẩn thận</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-dot active"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-title">Đang vận chuyển</div>
+                                        <div class="timeline-time">02/01/2025 08:00</div>
+                                        <div class="timeline-desc">Đơn hàng đang trên đường giao đến bạn</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item" th:if="${order.status.name() == 'DELIVERED'}">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-title">Giao hàng thành công</div>
+                                        <div class="timeline-time" th:text="${#temporals.format(order.updatedAt, 'dd/MM/yyyy HH:mm')}">02/01/2025 15:30</div>
+                                        <div class="timeline-desc">Đơn hàng đã được giao đến địa chỉ của bạn</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Button -->
+                            <div class="button-container">
+                                <a th:href="${baseUrl + '/orders/' + order.id}" class="button">
+                                    Xem chi tiết đơn hàng
+                                </a>
+                            </div>
+                            
+                            <!-- Message -->
+                            <p class="greeting" style="margin-top: 30px;">
+                                Nếu bạn có bất kỳ thắc mắc nào về đơn hàng, đừng ngần ngại liên hệ với chúng tôi 
+                                qua hotline <strong>1900-xxxx</strong> hoặc email <strong>support@phonestore.com</strong>
+                            </p>
+                            
+                            <p class="greeting">
+                                Cảm ơn bạn đã tin tưởng và mua sắm tại <strong>Phone Store</strong>! 💙
+                            </p>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- Footer -->
+                    <tr>
+                        <td class="footer">
+                            <p><strong>📱 Phone Store</strong></p>
+                            <p>Điện thoại chính hãng, giá tốt nhất</p>
+                            <p>📞 Hotline: 1900-xxxx | ✉️ Email: support@phonestore.com</p>
+                            <p>📍 Địa chỉ: 123 Nguyễn Huệ, Quận 1, TP.HCM</p>
+                            
+                            <div class="footer-links">
+                                <a th:href="${baseUrl}">Trang chủ</a>
+                                <a th:href="${baseUrl + '/products'}">Sản phẩm</a>
+                                <a th:href="${baseUrl + '/orders'}">Đơn hàng</a>
+                                <a th:href="${baseUrl + '/contact'}">Liên hệ</a>
+                            </div>
+                            
+                            <p style="margin-top: 20px; font-size: 12px;">
+                                Bạn nhận được email này vì có cập nhật về đơn hàng tại Phone Store.<br>
+                                © 2025 Phone Store. All rights reserved.
+                            </p>
+                        </td>
+                    </tr>
+                    
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
