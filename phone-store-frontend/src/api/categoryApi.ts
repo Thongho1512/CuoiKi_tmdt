@@ -12,13 +12,41 @@ export const categoryApi = {
     return response.data;
   },
 
-  create: async (data: CategoryRequest): Promise<Category> => {
-    const response = await axiosInstance.post('/categories', data);
+  create: async (data: CategoryRequest, image?: File): Promise<Category> => {
+    const formData = new FormData();
+    
+    // Append all category fields directly to FormData (for @ModelAttribute)
+    formData.append('name', data.name);
+    formData.append('description', data.description || '');
+    formData.append('imageUrl', data.imageUrl || '');
+    
+    // Append image if provided
+    if (image) {
+      formData.append('image', image);
+    }
+    
+    const response = await axiosInstance.post('/categories', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    });
     return response.data;
   },
 
-  update: async (id: number, data: CategoryRequest): Promise<Category> => {
-    const response = await axiosInstance.put(`/categories/${id}`, data);
+  update: async (id: number, data: CategoryRequest, image?: File): Promise<Category> => {
+    const formData = new FormData();
+    
+    // Append all category fields directly to FormData (for @ModelAttribute)
+    formData.append('name', data.name);
+    formData.append('description', data.description || '');
+    formData.append('imageUrl', data.imageUrl || '');
+    
+    // Append image if provided
+    if (image) {
+      formData.append('image', image);
+    }
+    
+    const response = await axiosInstance.put(`/categories/${id}`, formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    });
     return response.data;
   },
 

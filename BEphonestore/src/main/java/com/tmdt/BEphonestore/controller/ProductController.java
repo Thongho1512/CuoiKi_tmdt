@@ -10,6 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -17,9 +18,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
 
-/**
- * Product Controller
- */
 @RestController
 @RequestMapping("/products")
 public class ProductController {
@@ -35,7 +33,6 @@ public class ProductController {
             @RequestParam(defaultValue = "DESC") String sortDir) {
 
         Sort sort = sortDir.equalsIgnoreCase("ASC") ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending();
-
         Pageable pageable = PageRequest.of(page, size, sort);
         Page<ProductResponse> products = productService.getActiveProducts(pageable);
         return ResponseEntity.ok(products);
@@ -67,7 +64,6 @@ public class ProductController {
             @RequestParam(defaultValue = "DESC") String sortDir) {
 
         Sort sort = sortDir.equalsIgnoreCase("ASC") ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending();
-
         Pageable pageable = PageRequest.of(page, size, sort);
         Page<ProductResponse> products = productService.getProductsByCategory(categoryId, pageable);
         return ResponseEntity.ok(products);
@@ -85,18 +81,22 @@ public class ProductController {
         return ResponseEntity.ok(products);
     }
 
-    @PostMapping
+    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<ProductResponse> createProduct(@Valid @RequestBody ProductRequest request) {
-        ProductResponse product = productService.createProduct(request);
+    public ResponseEntity<ProductResponse> createProduct(
+            @Valid @ModelAttribute ProductRequest request,
+            @RequestParam(value = "image", required = false) MultipartFile image) {
+        ProductResponse product = productService.createProduct(request, image);
         return ResponseEntity.ok(product);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping(value = "/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<ProductResponse> updateProduct(@PathVariable Long id,
-            @Valid @RequestBody ProductRequest request) {
-        ProductResponse product = productService.updateProduct(id, request);
+    public ResponseEntity<ProductResponse> updateProduct(
+            @PathVariable Long id,
+            @Valid @ModelAttribute ProductRequest request,
+            @RequestParam(value = "image", required = false) MultipartFile image) {
+        ProductResponse product = productService.updateProduct(id, request, image);
         return ResponseEntity.ok(product);
     }
 
@@ -114,6 +114,4 @@ public class ProductController {
         MessageResponse response = productService.updateStock(id, stock);
         return ResponseEntity.ok(response);
     }
-
-    
 }

@@ -1,5 +1,5 @@
 import axiosInstance from './axiosConfig';
-import { Product, ProductRequest, ProductFilters, PageResponse } from '@/types';
+import { Product, ProductRequest, PageResponse } from '@/types';
 
 export const productApi = {
   getAll: async (page = 0, size = 12, sortBy = 'id', sortDir = 'DESC'): Promise<PageResponse<Product>> => {
@@ -35,13 +35,51 @@ export const productApi = {
     return response.data;
   },
 
-  create: async (data: ProductRequest): Promise<Product> => {
-    const response = await axiosInstance.post('/products', data);
+  create: async (data: ProductRequest, image?: File): Promise<Product> => {
+    const formData = new FormData();
+    
+    // Append all product fields directly to FormData (for @ModelAttribute)
+    formData.append('name', data.name);
+    formData.append('description', data.description || '');
+    formData.append('price', data.price.toString());
+    formData.append('stock', data.stock.toString());
+    formData.append('categoryId', data.categoryId.toString());
+    formData.append('imageUrl', data.imageUrl || '');
+    formData.append('specifications', data.specifications || '');
+    formData.append('status', data.status || 'ACTIVE');
+    
+    // Append image if provided
+    if (image) {
+      formData.append('image', image);
+    }
+    
+    const response = await axiosInstance.post('/products', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    });
     return response.data;
   },
 
-  update: async (id: number, data: ProductRequest): Promise<Product> => {
-    const response = await axiosInstance.put(`/products/${id}`, data);
+  update: async (id: number, data: ProductRequest, image?: File): Promise<Product> => {
+    const formData = new FormData();
+    
+    // Append all product fields directly to FormData (for @ModelAttribute)
+    formData.append('name', data.name);
+    formData.append('description', data.description || '');
+    formData.append('price', data.price.toString());
+    formData.append('stock', data.stock.toString());
+    formData.append('categoryId', data.categoryId.toString());
+    formData.append('imageUrl', data.imageUrl || '');
+    formData.append('specifications', data.specifications || '');
+    formData.append('status', data.status || 'ACTIVE');
+    
+    // Append image if provided
+    if (image) {
+      formData.append('image', image);
+    }
+    
+    const response = await axiosInstance.put(`/products/${id}`, formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    });
     return response.data;
   },
 
@@ -53,15 +91,6 @@ export const productApi = {
   updateStock: async (id: number, stock: number): Promise<{ message: string }> => {
     const response = await axiosInstance.put(`/products/${id}/stock`, null, {
       params: { stock },
-    });
-    return response.data;
-  },
-
-  uploadImage: async (id: number, file: File): Promise<{ message: string; data: string }> => {
-    const formData = new FormData();
-    formData.append('file', file);
-    const response = await axiosInstance.post(`/products/${id}/image`, formData, {
-      headers: { 'Content-Type': 'multipart/form-data' },
     });
     return response.data;
   },

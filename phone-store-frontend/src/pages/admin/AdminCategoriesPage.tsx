@@ -4,14 +4,17 @@ import { Category, CategoryRequest } from '@/types';
 import { categoryApi } from '@/api/categoryApi';
 import { DataTable } from '@/components/admin/DataTable';
 import { Modal } from '@/components/admin/Modal';
+import { ImageUpload } from '@/components/admin/ImageUpload';
 import { formatDateTime } from '@/utils/formatters';
 import toast from 'react-hot-toast';
 
 export const AdminCategoriesPage: React.FC = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [editingCategory, setEditingCategory] = useState<Category | null>(null);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [formData, setFormData] = useState<CategoryRequest>({
     name: '',
     description: '',
@@ -44,6 +47,7 @@ export const AdminCategoriesPage: React.FC = () => {
       });
     } else {
       setEditingCategory(null);
+      setSelectedFile(null);
       setFormData({ name: '', description: '', imageUrl: '' });
     }
     setShowModal(true);
@@ -52,25 +56,38 @@ export const AdminCategoriesPage: React.FC = () => {
   const handleCloseModal = () => {
     setShowModal(false);
     setEditingCategory(null);
-    setFormData({ name: '', description: '', imageUrl: '' });
+    setSelectedFile(null);
+  };
+
+  const handleImageSelect = (file: File) => {
+    setSelectedFile(file);
+  };
+
+  const handleImageRemove = () => {
+    setSelectedFile(null);
+    setFormData({ ...formData, imageUrl: '' });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSaving(true);
 
     try {
       if (editingCategory) {
-        await categoryApi.update(editingCategory.id, formData);
+        await categoryApi.update(editingCategory.id, formData, selectedFile || undefined);
         toast.success('Cập nhật danh mục thành công');
       } else {
-        await categoryApi.create(formData);
+        await categoryApi.create(formData, selectedFile || undefined);
         toast.success('Tạo danh mục thành công');
       }
+
       handleCloseModal();
       fetchCategories();
     } catch (error) {
       console.error('Failed to save category:', error);
       toast.error('Không thể lưu danh mục');
+    } finally {
+      setSaving(false);
     }
   };
 
@@ -100,7 +117,14 @@ export const AdminCategoriesPage: React.FC = () => {
       label: 'Hình ảnh',
       render: (value: string) => (
         value ? (
-          <img src={value} alt="Category" className="h-12 w-12 object-cover rounded" />
+          <img 
+            src={value.startsWith('http') ? value : `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api'}${value}`} 
+            alt="Category" 
+            className="h-12 w-12 object-cover rounded"
+            onError={(e) => {
+              e.currentTarget.src = '/placeholder-category.jpg';
+            }}
+          />
         ) : (
           <div className="h-12 w-12 bg-gray-200 rounded flex items-center justify-center">
             <span className="text-xs text-gray-500">No img</span>
@@ -159,6 +183,17 @@ export const AdminCategoriesPage: React.FC = () => {
         title={editingCategory ? 'Chỉnh sửa danh mục' : 'Thêm danh mục mới'}
       >
         <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Image Upload */}
+          <ImageUpload
+            currentImage={formData.imageUrl ? 
+              (formData.imageUrl.startsWith('http') ? formData.imageUrl : `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api'}${formData.imageUrl}`) 
+              : undefined
+            }
+            onImageSelect={handleImageSelect}
+            onImageRemove={handleImageRemove}
+            label="Logo danh mục"
+          />
+
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Tên danh mục *
@@ -186,44 +221,31 @@ export const AdminCategoriesPage: React.FC = () => {
             />
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              URL hình ảnh
-            </label>
-            <input
-              type="url"
-              value={formData.imageUrl}
-              onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
-              placeholder="https://example.com/image.jpg"
-            />
-            {formData.imageUrl && (
-              <div className="mt-2">
-                <img
-                  src={formData.imageUrl}
-                  alt="Preview"
-                  className="h-20 w-20 object-cover rounded"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                  }}
-                />
-              </div>
-            )}
-          </div>
-
           <div className="flex justify-end space-x-3 pt-4 border-t">
             <button
               type="button"
               onClick={handleCloseModal}
-              className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300"
+              disabled={saving}
+              className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 disabled:opacity-50"
             >
               Hủy
             </button>
             <button
               type="submit"
-              className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700"
+              disabled={saving}
+              className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 disabled:opacity-50 flex items-center space-x-2"
             >
-              {editingCategory ? 'Cập nhật' : 'Tạo mới'}
+              {saving ? (
+                <>
+                  <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                  </svg>
+                  <span>Đang lưu...</span>
+                </>
+              ) : (
+                <span>{editingCategory ? 'Cập nhật' : 'Tạo mới'}</span>
+              )}
             </button>
           </div>
         </form>

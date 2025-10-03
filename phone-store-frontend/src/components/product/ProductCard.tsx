@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ShoppingCartIcon } from '@heroicons/react/24/outline';
 import { Product } from '@/types/product.types';
 import { formatCurrency } from '@/utils/formatters';
+import { getImageUrl } from '@/utils/imageHelper';
 import { useCart } from '@/hooks/useCart';
 import { useAuth } from '@/hooks/useAuth';
 import toast from 'react-hot-toast';
@@ -39,9 +40,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       {/* Image */}
       <div className="relative aspect-square overflow-hidden bg-gray-100">
         <img
-          src={product.imageUrl || '/placeholder-phone.jpg'}
+          src={getImageUrl(product.imageUrl)}
           alt={product.name}
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+          onError={(e) => {
+            e.currentTarget.src = '/placeholder-phone.jpg';
+          }}
         />
         {product.stock === 0 && (
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">

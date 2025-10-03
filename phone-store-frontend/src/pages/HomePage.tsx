@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Product, Category } from '@/types';
 import { productApi } from '@/api/productApi';
 import { categoryApi } from '@/api/categoryApi';
+import { getCategoryImageUrl } from '@/utils/imageHelper';
 import { ProductCard } from '@/components/product/ProductCard';
 
 export const HomePage: React.FC = () => {
@@ -57,9 +58,12 @@ export const HomePage: React.FC = () => {
                 className="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-xl transition-shadow"
               >
                 <img
-                  src={category.imageUrl || '/placeholder-category.jpg'}
+                  src={getCategoryImageUrl(category.imageUrl)}
                   alt={category.name}
-                  className="w-16 h-16 mx-auto mb-4"
+                  className="w-16 h-16 mx-auto mb-4 object-contain"
+                  onError={(e) => {
+                    e.currentTarget.src = '/placeholder-category.jpg';
+                  }}
                 />
                 <h3 className="font-semibold">{category.name}</h3>
               </Link>

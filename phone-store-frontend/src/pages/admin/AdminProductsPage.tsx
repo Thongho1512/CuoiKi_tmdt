@@ -1,4 +1,3 @@
-// src/pages/admin/AdminProductsPage.tsx
 import React, { useEffect, useState } from 'react';
 import { PlusIcon } from '@heroicons/react/24/outline';
 import { Product, ProductRequest, Category, PageResponse } from '@/types';
@@ -7,6 +6,7 @@ import { categoryApi } from '@/api/categoryApi';
 import { DataTable } from '@/components/admin/DataTable';
 import { SearchBar } from '@/components/admin/SearchBar';
 import { Modal } from '@/components/admin/Modal';
+import { ImageUpload } from '@/components/admin/ImageUpload';
 import { Pagination } from '@/components/common/Pagination';
 import { formatCurrency, formatDateTime } from '@/utils/formatters';
 import { useDebounce } from '@/hooks/useDebounce';
@@ -16,10 +16,12 @@ export const AdminProductsPage: React.FC = () => {
   const [products, setProducts] = useState<PageResponse<Product> | null>(null);
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [formData, setFormData] = useState<ProductRequest>({
     name: '',
     description: '',
@@ -82,6 +84,7 @@ export const AdminProductsPage: React.FC = () => {
       });
     } else {
       setEditingProduct(null);
+      setSelectedFile(null);
       setFormData({
         name: '',
         description: '',
@@ -99,24 +102,38 @@ export const AdminProductsPage: React.FC = () => {
   const handleCloseModal = () => {
     setShowModal(false);
     setEditingProduct(null);
+    setSelectedFile(null);
+  };
+
+  const handleImageSelect = (file: File) => {
+    setSelectedFile(file);
+  };
+
+  const handleImageRemove = () => {
+    setSelectedFile(null);
+    setFormData({ ...formData, imageUrl: '' });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSaving(true);
 
     try {
       if (editingProduct) {
-        await productApi.update(editingProduct.id, formData);
+        await productApi.update(editingProduct.id, formData, selectedFile || undefined);
         toast.success('Cập nhật sản phẩm thành công');
       } else {
-        await productApi.create(formData);
+        await productApi.create(formData, selectedFile || undefined);
         toast.success('Tạo sản phẩm thành công');
       }
+
       handleCloseModal();
       fetchProducts();
     } catch (error) {
       console.error('Failed to save product:', error);
       toast.error('Không thể lưu sản phẩm');
+    } finally {
+      setSaving(false);
     }
   };
 
@@ -163,7 +180,14 @@ export const AdminProductsPage: React.FC = () => {
       label: 'Hình ảnh',
       render: (value: string) => (
         value ? (
-          <img src={value} alt="Product" className="h-16 w-16 object-cover rounded" />
+          <img 
+            src={value.startsWith('http') ? value : `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api'}${value}`} 
+            alt="Product" 
+            className="h-16 w-16 object-cover rounded"
+            onError={(e) => {
+              e.currentTarget.src = '/placeholder-phone.jpg';
+            }}
+          />
         ) : (
           <div className="h-16 w-16 bg-gray-200 rounded flex items-center justify-center">
             <span className="text-xs text-gray-500">No img</span>
@@ -269,6 +293,17 @@ export const AdminProductsPage: React.FC = () => {
         size="lg"
       >
         <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Image Upload */}
+          <ImageUpload
+            currentImage={formData.imageUrl ? 
+              (formData.imageUrl.startsWith('http') ? formData.imageUrl : `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api'}${formData.imageUrl}`) 
+              : undefined
+            }
+            onImageSelect={handleImageSelect}
+            onImageRemove={handleImageRemove}
+            label="Hình ảnh sản phẩm"
+          />
+
           <div className="grid grid-cols-2 gap-4">
             <div className="col-span-2">
               <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -346,19 +381,6 @@ export const AdminProductsPage: React.FC = () => {
 
             <div className="col-span-2">
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                URL hình ảnh
-              </label>
-              <input
-                type="url"
-                value={formData.imageUrl}
-                onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
-                placeholder="https://example.com/image.jpg"
-              />
-            </div>
-
-            <div className="col-span-2">
-              <label className="block text-sm font-medium text-gray-700 mb-2">
                 Mô tả
               </label>
               <textarea
@@ -387,15 +409,27 @@ export const AdminProductsPage: React.FC = () => {
             <button
               type="button"
               onClick={handleCloseModal}
-              className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300"
+              disabled={saving}
+              className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 disabled:opacity-50"
             >
               Hủy
             </button>
             <button
               type="submit"
-              className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700"
+              disabled={saving}
+              className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 disabled:opacity-50 flex items-center space-x-2"
             >
-              {editingProduct ? 'Cập nhật' : 'Tạo mới'}
+              {saving ? (
+                <>
+                  <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                  </svg>
+                  <span>Đang lưu...</span>
+                </>
+              ) : (
+                <span>{editingProduct ? 'Cập nhật' : 'Tạo mới'}</span>
+              )}
             </button>
           </div>
         </form>

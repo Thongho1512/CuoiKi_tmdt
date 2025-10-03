@@ -21,9 +21,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
 
-/**
- * Product Service Implementation
- */
 @Service
 public class ProductServiceImpl implements ProductService {
 
@@ -67,7 +64,6 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Page<ProductResponse> getProductsByCategory(Long categoryId, Pageable pageable) {
-        // verify category exists
         categoryRepository.findById(categoryId)
                 .orElseThrow(() -> new ResourceNotFoundException("Category", "id", categoryId));
 
@@ -83,9 +79,18 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     @Transactional
-    public ProductResponse createProduct(ProductRequest request) {
+    public ProductResponse createProduct(ProductRequest request, MultipartFile image) {
         Category category = categoryRepository.findById(request.getCategoryId())
                 .orElseThrow(() -> new ResourceNotFoundException("Category", "id", request.getCategoryId()));
+
+        // Upload image if provided
+        String imageUrl = null;
+        if (image != null && !image.isEmpty()) {
+            String fileName = fileStorageService.storeFile(image);
+            imageUrl = "/uploads/" + fileName;
+        } else if (request.getImageUrl() != null && !request.getImageUrl().isEmpty()) {
+            imageUrl = request.getImageUrl();
+        }
 
         Product product = Product.builder()
                 .name(request.getName())
@@ -93,7 +98,7 @@ public class ProductServiceImpl implements ProductService {
                 .price(request.getPrice())
                 .stock(request.getStock())
                 .category(category)
-                .imageUrl(request.getImageUrl())
+                .imageUrl(imageUrl)
                 .specifications(request.getSpecifications())
                 .status(request.getStatus() != null ? request.getStatus() : ProductStatus.ACTIVE)
                 .build();
@@ -103,7 +108,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     @Transactional
-    public ProductResponse updateProduct(Long id, ProductRequest request) {
+    public ProductResponse updateProduct(Long id, ProductRequest request, MultipartFile image) {
         Product product = findProductById(id);
 
         if (request.getCategoryId() != null &&
@@ -113,11 +118,26 @@ public class ProductServiceImpl implements ProductService {
             product.setCategory(category);
         }
 
+        // Handle image upload
+        if (image != null && !image.isEmpty()) {
+            // Delete old image if exists
+            if (product.getImageUrl() != null && !product.getImageUrl().isEmpty() &&
+                    product.getImageUrl().startsWith("/uploads/")) {
+                String oldFileName = product.getImageUrl().replace("/uploads/", "");
+                fileStorageService.deleteFile(oldFileName);
+            }
+
+            // Upload new image
+            String fileName = fileStorageService.storeFile(image);
+            product.setImageUrl("/uploads/" + fileName);
+        } else if (request.getImageUrl() != null && !request.getImageUrl().isEmpty()) {
+            product.setImageUrl(request.getImageUrl());
+        }
+
         product.setName(request.getName());
         product.setDescription(request.getDescription());
         product.setPrice(request.getPrice());
         product.setStock(request.getStock());
-        product.setImageUrl(request.getImageUrl());
         product.setSpecifications(request.getSpecifications());
 
         if (request.getStatus() != null) {
@@ -131,6 +151,14 @@ public class ProductServiceImpl implements ProductService {
     @Transactional
     public MessageResponse deleteProduct(Long id) {
         Product product = findProductById(id);
+
+        // Delete image if exists
+        if (product.getImageUrl() != null && !product.getImageUrl().isEmpty() &&
+                product.getImageUrl().startsWith("/uploads/")) {
+            String fileName = product.getImageUrl().replace("/uploads/", "");
+            fileStorageService.deleteFile(fileName);
+        }
+
         productRepository.delete(product);
         return new MessageResponse("Product deleted successfully");
     }
@@ -150,21 +178,6 @@ public class ProductServiceImpl implements ProductService {
         return new MessageResponse("Stock updated successfully");
     }
 
-    @Override
-    @Transactional
-    public String uploadProductImage(Long id, MultipartFile file) {
-        Product product = findProductById(id);
-
-        String fileName = fileStorageService.storeFile(file);
-        String fileUrl = "/uploads/" + fileName;
-
-        product.setImageUrl(fileUrl);
-        productRepository.save(product);
-
-        return fileUrl;
-    }
-
-    // ================== Helper methods ==================
     private Product findProductById(Long id) {
         return productRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Product", "id", id));

@@ -22,13 +22,11 @@ public interface ProductService {
 
     Page<ProductResponse> getProductsByPriceRange(BigDecimal minPrice, BigDecimal maxPrice, Pageable pageable);
 
-    ProductResponse createProduct(ProductRequest request);
+    ProductResponse createProduct(ProductRequest request, MultipartFile image);
 
-    ProductResponse updateProduct(Long id, ProductRequest request);
+    ProductResponse updateProduct(Long id, ProductRequest request, MultipartFile image);
 
     MessageResponse deleteProduct(Long id);
 
     MessageResponse updateStock(Long id, Integer stock);
-
-    String uploadProductImage(Long id, MultipartFile file);
 }

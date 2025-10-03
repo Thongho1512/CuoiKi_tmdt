@@ -2,6 +2,7 @@ import React from 'react';
 import { TrashIcon, MinusIcon, PlusIcon } from '@heroicons/react/24/outline';
 import { CartItem as CartItemType } from '@/types/cart.types';
 import { formatCurrency } from '@/utils/formatters';
+import { getImageUrl } from '@/utils/imageHelper';
 
 interface CartItemProps {
   item: CartItemType;
@@ -13,9 +14,12 @@ export const CartItem: React.FC<CartItemProps> = ({ item, onUpdateQuantity, onRe
   return (
     <div className="flex items-center space-x-4 bg-white p-4 rounded-lg shadow">
       <img
-        src={item.productImage || '/placeholder-phone.jpg'}
+        src={getImageUrl(item.productImage)}
         alt={item.productName}
         className="w-20 h-20 object-cover rounded"
+        onError={(e) => {
+          e.currentTarget.src = '/placeholder-phone.jpg';
+        }}
       />
 
       <div className="flex-1">

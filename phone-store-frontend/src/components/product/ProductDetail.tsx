@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { MinusIcon, PlusIcon, ShoppingCartIcon } from '@heroicons/react/24/outline';
 import { Product } from '@/types/product.types';
 import { formatCurrency } from '@/utils/formatters';
+import { getImageUrl } from '@/utils/imageHelper';
 import { useCart } from '@/hooks/useCart';
 import { useAuth } from '@/hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
@@ -51,9 +52,12 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
       {/* Product Image */}
       <div className="bg-gray-100 rounded-lg overflow-hidden">
         <img
-          src={product.imageUrl || '/placeholder-phone.jpg'}
+          src={getImageUrl(product.imageUrl)}
           alt={product.name}
           className="w-full h-full object-contain"
+          onError={(e) => {
+            e.currentTarget.src = '/placeholder-phone.jpg';
+          }}
         />
       </div>
 
