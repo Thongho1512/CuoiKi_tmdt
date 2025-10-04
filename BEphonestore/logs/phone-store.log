@@ -48540,3 +48540,925 @@ org.thymeleaf.exceptions.TemplateInputException: Error resolving template [order
     where
         p1_0.id=?
 2025-10-03 21:04:53 [http-nio-8080-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.tmdt.BEphonestore.exception.BadRequestException: Invalid file type. Allowed types: jpg, jpeg, png, gif, webp, bmp]
+2025-10-04 11:15:03 [restartedMain] INFO  c.t.B.BEphonestoreApplication - Starting BEphonestoreApplication using Java 17.0.16 with PID 12476 (D:\TMDT\CuoiKi\BEphonestore\target\classes started by ThongHo in D:\TMDT\CuoiKi\BEphonestore)
+2025-10-04 11:15:03 [restartedMain] INFO  c.t.B.BEphonestoreApplication - The following 1 profile is active: "dev"
+2025-10-04 11:15:03 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-04 11:15:03 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-04 11:15:04 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-04 11:15:05 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 161 ms. Found 8 JPA repository interfaces.
+2025-10-04 11:15:06 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-04 11:15:06 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-04 11:15:06 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-10-04 11:15:06 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-10-04 11:15:06 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3097 ms
+2025-10-04 11:15:06 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-04 11:15:06 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
+2025-10-04 11:15:06 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-04 11:15:07 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-04 11:15:07 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-04 11:15:07 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: 81f991e3-3f80-47d1-81f6-430824e7cc08
+2025-10-04 11:15:07 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-04 11:15:07 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-04 11:15:09 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-04 11:15:10 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-04 11:15:11 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-04 11:15:14 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-04 11:15:14 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@47d0b654, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@556f45d8, org.springframework.security.web.context.SecurityContextHolderFilter@281e6f8f, org.springframework.security.web.header.HeaderWriterFilter@60d457e5, org.springframework.web.filter.CorsFilter@38512d41, org.springframework.security.web.authentication.logout.LogoutFilter@1dd28f39, com.tmdt.BEphonestore.security.JwtAuthenticationFilter@70baad69, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@75aabf9e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@53268bbd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@ffad1e0, org.springframework.security.web.session.SessionManagementFilter@714defc1, org.springframework.security.web.access.ExceptionTranslationFilter@158cac76, org.springframework.security.web.access.intercept.AuthorizationFilter@501846b0]
+2025-10-04 11:15:15 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-10-04 11:15:15 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/api'
+2025-10-04 11:15:15 [restartedMain] INFO  c.t.B.BEphonestoreApplication - Started BEphonestoreApplication in 13.233 seconds (process running for 14.068)
+2025-10-04 11:15:17 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-04 11:15:17 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-04 11:15:17 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-10-04 11:15:17 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui.html
+2025-10-04 11:15:17 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 11:15:17 [http-nio-8080-exec-1] WARN  o.s.w.s.h.HandlerMappingIntrospector - Cache miss for REQUEST dispatch to '/api/swagger-ui.html' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+2025-10-04 11:15:17 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui.html
+2025-10-04 11:15:17 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.html
+2025-10-04 11:15:17 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 11:15:17 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.html
+2025-10-04 11:15:18 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui.css
+2025-10-04 11:15:18 [http-nio-8080-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 11:15:18 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui.css
+2025-10-04 11:15:18 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.css
+2025-10-04 11:15:18 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-bundle.js
+2025-10-04 11:15:18 [http-nio-8080-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 11:15:18 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 11:15:18 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.css
+2025-10-04 11:15:18 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-bundle.js
+2025-10-04 11:15:18 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-initializer.js
+2025-10-04 11:15:18 [http-nio-8080-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 11:15:18 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-initializer.js
+2025-10-04 11:15:18 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-standalone-preset.js
+2025-10-04 11:15:18 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 11:15:18 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-standalone-preset.js
+2025-10-04 11:15:18 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /v3/api-docs/swagger-config
+2025-10-04 11:15:18 [http-nio-8080-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 11:15:18 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /v3/api-docs/swagger-config
+2025-10-04 11:15:18 [http-nio-8080-exec-10] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.tmdt.BEphonestore.exception.GlobalExceptionHandler#handleGlobalException(Exception, WebRequest)
+org.springframework.web.HttpMediaTypeNotAcceptableException: No acceptable representation
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:256)
+	at org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor.handleReturnValue(HttpEntityMethodProcessor.java:245)
+	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:78)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:136)
+	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.doResolveHandlerMethodException(ExceptionHandlerExceptionResolver.java:432)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver.doResolveException(AbstractHandlerMethodExceptionResolver.java:74)
+	at org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.resolveException(AbstractHandlerExceptionResolver.java:161)
+	at org.springframework.web.servlet.handler.HandlerExceptionResolverComposite.resolveException(HandlerExceptionResolverComposite.java:80)
+	at org.springframework.web.servlet.DispatcherServlet.processHandlerException(DispatcherServlet.java:1357)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1160)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.tmdt.BEphonestore.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2025-10-04 11:15:18 [http-nio-8080-exec-10] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpMediaTypeNotAcceptableException: No acceptable representation]
+2025-10-04 11:15:18 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2025-10-04 11:15:18 [http-nio-8080-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 11:15:18 [http-nio-8080-exec-10] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2025-10-04 11:20:13 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-04 11:20:13 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-10-04 11:20:13 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-04 11:28:14 [restartedMain] INFO  c.t.B.BEphonestoreApplication - Starting BEphonestoreApplication using Java 17.0.16 with PID 18660 (D:\TMDT\CuoiKi\BEphonestore\target\classes started by ThongHo in D:\TMDT\CuoiKi\BEphonestore)
+2025-10-04 11:28:14 [restartedMain] INFO  c.t.B.BEphonestoreApplication - The following 1 profile is active: "dev"
+2025-10-04 11:28:14 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-04 11:28:14 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-04 11:28:16 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-04 11:28:16 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 190 ms. Found 8 JPA repository interfaces.
+2025-10-04 11:28:18 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-04 11:28:18 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-04 11:28:18 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-10-04 11:28:18 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-10-04 11:28:18 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4090 ms
+2025-10-04 11:28:19 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-04 11:28:19 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
+2025-10-04 11:28:19 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-04 11:28:19 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-04 11:28:19 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-04 11:28:20 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: 542b2939-5669-49cc-a1cc-738a624c10c3
+2025-10-04 11:28:20 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-04 11:28:20 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-04 11:28:22 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-04 11:28:22 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-04 11:28:23 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-04 11:28:26 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-04 11:28:27 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5875ca32, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7001230a, org.springframework.security.web.context.SecurityContextHolderFilter@7b54c3b, org.springframework.security.web.header.HeaderWriterFilter@772a3016, org.springframework.web.filter.CorsFilter@4643d466, org.springframework.security.web.authentication.logout.LogoutFilter@38512d41, com.tmdt.BEphonestore.security.JwtAuthenticationFilter@4b129069, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@451d973b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5b37dcb6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2115c318, org.springframework.security.web.session.SessionManagementFilter@252745ca, org.springframework.security.web.access.ExceptionTranslationFilter@714defc1, org.springframework.security.web.access.intercept.AuthorizationFilter@6fa8fe88]
+2025-10-04 11:28:27 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-10-04 11:28:27 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-10-04 11:28:27 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-04 11:28:27 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-10-04 11:28:27 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-04 11:28:27 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-04 11:28:27 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2025-10-04 11:30:09 [restartedMain] INFO  c.t.B.BEphonestoreApplication - Starting BEphonestoreApplication using Java 17.0.16 with PID 21104 (D:\TMDT\CuoiKi\BEphonestore\target\classes started by ThongHo in D:\TMDT\CuoiKi\BEphonestore)
+2025-10-04 11:30:09 [restartedMain] INFO  c.t.B.BEphonestoreApplication - The following 1 profile is active: "dev"
+2025-10-04 11:30:09 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-04 11:30:09 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-04 11:30:10 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-04 11:30:11 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 191 ms. Found 8 JPA repository interfaces.
+2025-10-04 11:30:12 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-04 11:30:12 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-04 11:30:12 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-10-04 11:30:12 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-10-04 11:30:12 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3281 ms
+2025-10-04 11:30:12 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-04 11:30:12 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
+2025-10-04 11:30:12 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-04 11:30:13 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-04 11:30:13 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-04 11:30:13 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: 0681165d-97a4-41cd-82da-93bac3ec7286
+2025-10-04 11:30:13 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-04 11:30:13 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-04 11:30:15 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-04 11:30:15 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-04 11:30:16 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-04 11:30:18 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-04 11:30:18 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@47d0b654, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@556f45d8, org.springframework.security.web.context.SecurityContextHolderFilter@281e6f8f, org.springframework.security.web.header.HeaderWriterFilter@60d457e5, org.springframework.web.filter.CorsFilter@38512d41, org.springframework.security.web.authentication.logout.LogoutFilter@1dd28f39, com.tmdt.BEphonestore.security.JwtAuthenticationFilter@70baad69, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@75aabf9e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@53268bbd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@ffad1e0, org.springframework.security.web.session.SessionManagementFilter@714defc1, org.springframework.security.web.access.ExceptionTranslationFilter@158cac76, org.springframework.security.web.access.intercept.AuthorizationFilter@501846b0]
+2025-10-04 11:30:19 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-10-04 11:30:19 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/api'
+2025-10-04 11:30:19 [restartedMain] INFO  c.t.B.BEphonestoreApplication - Started BEphonestoreApplication in 11.136 seconds (process running for 11.989)
+2025-10-04 11:30:26 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-04 11:30:26 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-04 11:30:26 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-10-04 11:30:26 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui.html
+2025-10-04 11:30:26 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui.html
+2025-10-04 11:30:26 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 11:30:26 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 11:30:26 [http-nio-8080-exec-1] WARN  o.s.w.s.h.HandlerMappingIntrospector - Cache miss for REQUEST dispatch to '/api/swagger-ui.html' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+2025-10-04 11:30:26 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui.html
+2025-10-04 11:30:26 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui.html
+2025-10-04 11:30:26 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.html
+2025-10-04 11:30:26 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 11:30:26 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.html
+2025-10-04 11:30:26 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui.css
+2025-10-04 11:30:26 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 11:30:26 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui.css
+2025-10-04 11:30:26 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.css
+2025-10-04 11:30:26 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-bundle.js
+2025-10-04 11:30:26 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-standalone-preset.js
+2025-10-04 11:30:26 [http-nio-8080-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 11:30:26 [http-nio-8080-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 11:30:26 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-initializer.js
+2025-10-04 11:30:26 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 11:30:26 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-bundle.js
+2025-10-04 11:30:26 [http-nio-8080-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 11:30:26 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.css
+2025-10-04 11:30:26 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-standalone-preset.js
+2025-10-04 11:30:26 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-initializer.js
+2025-10-04 11:30:26 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /v3/api-docs/swagger-config
+2025-10-04 11:30:26 [http-nio-8080-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 11:30:26 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /v3/api-docs/swagger-config
+2025-10-04 11:30:26 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/favicon-32x32.png
+2025-10-04 11:30:26 [http-nio-8080-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 11:30:26 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/favicon-32x32.png
+2025-10-04 11:30:26 [http-nio-8080-exec-10] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.tmdt.BEphonestore.exception.GlobalExceptionHandler#handleGlobalException(Exception, WebRequest)
+org.springframework.web.HttpMediaTypeNotAcceptableException: No acceptable representation
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:256)
+	at org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor.handleReturnValue(HttpEntityMethodProcessor.java:245)
+	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:78)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:136)
+	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.doResolveHandlerMethodException(ExceptionHandlerExceptionResolver.java:432)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver.doResolveException(AbstractHandlerMethodExceptionResolver.java:74)
+	at org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.resolveException(AbstractHandlerExceptionResolver.java:161)
+	at org.springframework.web.servlet.handler.HandlerExceptionResolverComposite.resolveException(HandlerExceptionResolverComposite.java:80)
+	at org.springframework.web.servlet.DispatcherServlet.processHandlerException(DispatcherServlet.java:1357)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1160)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.tmdt.BEphonestore.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2025-10-04 11:30:26 [http-nio-8080-exec-10] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpMediaTypeNotAcceptableException: No acceptable representation]
+2025-10-04 11:30:26 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2025-10-04 11:30:26 [http-nio-8080-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 11:30:26 [http-nio-8080-exec-10] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2025-10-04 11:32:07 [restartedMain] INFO  c.t.B.BEphonestoreApplication - Starting BEphonestoreApplication using Java 17.0.16 with PID 12396 (D:\TMDT\CuoiKi\BEphonestore\target\classes started by ThongHo in D:\TMDT\CuoiKi\BEphonestore)
+2025-10-04 11:32:07 [restartedMain] INFO  c.t.B.BEphonestoreApplication - The following 1 profile is active: "dev"
+2025-10-04 11:32:07 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-04 11:32:07 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-04 11:32:09 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-04 11:32:09 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 164 ms. Found 8 JPA repository interfaces.
+2025-10-04 11:32:11 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-04 11:32:11 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-04 11:32:11 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-10-04 11:32:11 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-10-04 11:32:11 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3915 ms
+2025-10-04 11:32:11 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-04 11:32:12 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
+2025-10-04 11:32:12 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-04 11:32:12 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-04 11:32:12 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-04 11:32:13 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: 659311fa-3d3e-465b-8ff0-fe57450f40e1
+2025-10-04 11:32:13 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-04 11:32:13 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-04 11:32:15 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-04 11:32:15 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-04 11:32:16 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-04 11:32:18 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-04 11:32:19 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7b08b640, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@8a5add6, org.springframework.security.web.context.SecurityContextHolderFilter@6bb4038, org.springframework.security.web.header.HeaderWriterFilter@469c41ba, org.springframework.web.filter.CorsFilter@10750bc, org.springframework.security.web.authentication.logout.LogoutFilter@3855aaeb, com.tmdt.BEphonestore.security.JwtAuthenticationFilter@3fa75387, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@cd7f310, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@107ecd85, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@bbe0604, org.springframework.security.web.session.SessionManagementFilter@74dd1a82, org.springframework.security.web.access.ExceptionTranslationFilter@3c5a4be5, org.springframework.security.web.access.intercept.AuthorizationFilter@e4fb22d]
+2025-10-04 11:32:19 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-10-04 11:32:19 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/api'
+2025-10-04 11:32:19 [restartedMain] INFO  c.t.B.BEphonestoreApplication - Started BEphonestoreApplication in 13.033 seconds (process running for 13.895)
+2025-10-04 11:32:22 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-04 11:32:22 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-04 11:32:22 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-10-04 11:32:22 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.html
+2025-10-04 11:32:22 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 11:32:22 [http-nio-8080-exec-1] WARN  o.s.w.s.h.HandlerMappingIntrospector - Cache miss for REQUEST dispatch to '/api/swagger-ui/index.html' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+2025-10-04 11:32:22 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.html
+2025-10-04 11:32:22 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui.css
+2025-10-04 11:32:22 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.css
+2025-10-04 11:32:22 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-bundle.js
+2025-10-04 11:32:22 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-standalone-preset.js
+2025-10-04 11:32:22 [http-nio-8080-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 11:32:22 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 11:32:22 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-initializer.js
+2025-10-04 11:32:22 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 11:32:22 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 11:32:22 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui.css
+2025-10-04 11:32:22 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 11:32:22 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-bundle.js
+2025-10-04 11:32:22 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.css
+2025-10-04 11:32:22 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-initializer.js
+2025-10-04 11:32:22 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-standalone-preset.js
+2025-10-04 11:32:23 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /v3/api-docs/swagger-config
+2025-10-04 11:32:23 [http-nio-8080-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 11:32:23 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/favicon-32x32.png
+2025-10-04 11:32:23 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /v3/api-docs/swagger-config
+2025-10-04 11:32:23 [http-nio-8080-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 11:32:23 [http-nio-8080-exec-8] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpMediaTypeNotAcceptableException: No acceptable representation]
+2025-10-04 11:32:23 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/favicon-32x32.png
+2025-10-04 11:32:23 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2025-10-04 11:32:23 [http-nio-8080-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 11:32:23 [http-nio-8080-exec-8] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2025-10-04 12:16:26 [restartedMain] INFO  c.t.B.BEphonestoreApplication - Starting BEphonestoreApplication using Java 17.0.16 with PID 5580 (D:\TMDT\CuoiKi\BEphonestore\target\classes started by ThongHo in D:\TMDT\CuoiKi\BEphonestore)
+2025-10-04 12:16:26 [restartedMain] INFO  c.t.B.BEphonestoreApplication - The following 1 profile is active: "dev"
+2025-10-04 12:16:26 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-04 12:16:26 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-04 12:16:28 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-04 12:16:28 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 159 ms. Found 8 JPA repository interfaces.
+2025-10-04 12:16:29 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-04 12:16:29 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-04 12:16:29 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-10-04 12:16:29 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-10-04 12:16:29 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2905 ms
+2025-10-04 12:16:30 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-04 12:16:30 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
+2025-10-04 12:16:30 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-04 12:16:30 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-04 12:16:30 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-04 12:16:31 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: c26d3f21-6bb4-40f4-b105-6c1e3c70d2a4
+2025-10-04 12:16:31 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-04 12:16:31 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-04 12:16:32 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-04 12:16:33 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-04 12:16:33 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-04 12:16:36 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-04 12:16:36 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4f4a3fd9, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7b54c3b, org.springframework.security.web.context.SecurityContextHolderFilter@89107f2, org.springframework.security.web.header.HeaderWriterFilter@5c8090eb, org.springframework.web.filter.CorsFilter@18a34012, org.springframework.security.web.authentication.logout.LogoutFilter@36b3beaa, com.tmdt.BEphonestore.security.JwtAuthenticationFilter@14a4edd1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@73c98b18, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3c5a4be5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@451d973b, org.springframework.security.web.session.SessionManagementFilter@566a5c22, org.springframework.security.web.access.ExceptionTranslationFilter@4e3ba81b, org.springframework.security.web.access.intercept.AuthorizationFilter@3d96dd6]
+2025-10-04 12:16:37 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-10-04 12:16:37 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/api'
+2025-10-04 12:16:37 [restartedMain] INFO  c.t.B.BEphonestoreApplication - Started BEphonestoreApplication in 11.285 seconds (process running for 12.097)
+2025-10-04 12:16:41 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-04 12:16:41 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-04 12:16:41 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-10-04 12:16:41 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.html
+2025-10-04 12:16:41 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:16:41 [http-nio-8080-exec-2] WARN  o.s.w.s.h.HandlerMappingIntrospector - Cache miss for REQUEST dispatch to '/api/swagger-ui/index.html' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+2025-10-04 12:16:41 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.html
+2025-10-04 12:16:41 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.css
+2025-10-04 12:16:41 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:16:41 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui.css
+2025-10-04 12:16:41 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-initializer.js
+2025-10-04 12:16:41 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-bundle.js
+2025-10-04 12:16:41 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-standalone-preset.js
+2025-10-04 12:16:41 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:16:41 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.css
+2025-10-04 12:16:41 [http-nio-8080-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:16:41 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:16:41 [http-nio-8080-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:16:41 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-initializer.js
+2025-10-04 12:16:41 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-bundle.js
+2025-10-04 12:16:41 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui.css
+2025-10-04 12:16:41 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-standalone-preset.js
+2025-10-04 12:16:42 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /v3/api-docs/swagger-config
+2025-10-04 12:16:42 [http-nio-8080-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:16:42 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/favicon-32x32.png
+2025-10-04 12:16:42 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /v3/api-docs/swagger-config
+2025-10-04 12:16:42 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:16:42 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/favicon-32x32.png
+2025-10-04 12:17:46 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-10-04 12:17:46 [Thread-5] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-04 12:17:46 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-10-04 12:17:46 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-04 12:17:46 [restartedMain] INFO  c.t.B.BEphonestoreApplication - Starting BEphonestoreApplication using Java 17.0.16 with PID 5580 (D:\TMDT\CuoiKi\BEphonestore\target\classes started by ThongHo in D:\TMDT\CuoiKi\BEphonestore)
+2025-10-04 12:17:46 [restartedMain] INFO  c.t.B.BEphonestoreApplication - The following 1 profile is active: "dev"
+2025-10-04 12:17:47 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-04 12:17:47 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 69 ms. Found 8 JPA repository interfaces.
+2025-10-04 12:17:47 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-04 12:17:47 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-04 12:17:47 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-10-04 12:17:47 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-10-04 12:17:47 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 942 ms
+2025-10-04 12:17:47 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-04 12:17:47 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-04 12:17:47 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-04 12:17:47 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2025-10-04 12:17:47 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection ConnectionID:6 ClientConnectionId: e0b3dd63-fd0e-4278-ac16-ca29dd00373e
+2025-10-04 12:17:47 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2025-10-04 12:17:47 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-04 12:17:48 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-04 12:17:48 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-04 12:17:48 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-04 12:17:48 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@608b90be, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@79ef1ec6, org.springframework.security.web.context.SecurityContextHolderFilter@7953441b, org.springframework.security.web.header.HeaderWriterFilter@1483176d, org.springframework.web.filter.CorsFilter@6b601011, org.springframework.security.web.authentication.logout.LogoutFilter@33055f06, com.tmdt.BEphonestore.security.JwtAuthenticationFilter@4a980951, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@107c9efe, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1cc8dbe3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4d7083fc, org.springframework.security.web.session.SessionManagementFilter@189a30a, org.springframework.security.web.access.ExceptionTranslationFilter@2ad863cc, org.springframework.security.web.access.intercept.AuthorizationFilter@1db77039]
+2025-10-04 12:17:49 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-10-04 12:17:49 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/api'
+2025-10-04 12:17:49 [restartedMain] INFO  c.t.B.BEphonestoreApplication - Started BEphonestoreApplication in 2.549 seconds (process running for 83.749)
+2025-10-04 12:17:49 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-10-04 12:18:17 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-10-04 12:18:17 [Thread-7] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-04 12:18:17 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2025-10-04 12:18:17 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2025-10-04 12:18:17 [restartedMain] INFO  c.t.B.BEphonestoreApplication - Starting BEphonestoreApplication using Java 17.0.16 with PID 5580 (D:\TMDT\CuoiKi\BEphonestore\target\classes started by ThongHo in D:\TMDT\CuoiKi\BEphonestore)
+2025-10-04 12:18:17 [restartedMain] INFO  c.t.B.BEphonestoreApplication - The following 1 profile is active: "dev"
+2025-10-04 12:18:18 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-04 12:18:18 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 71 ms. Found 8 JPA repository interfaces.
+2025-10-04 12:18:18 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-04 12:18:18 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-04 12:18:18 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-10-04 12:18:18 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-10-04 12:18:18 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 775 ms
+2025-10-04 12:18:18 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-04 12:18:18 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-04 12:18:18 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-04 12:18:18 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2025-10-04 12:18:18 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection ConnectionID:12 ClientConnectionId: 969f6f5d-582c-4fab-bca9-dc78aa516f22
+2025-10-04 12:18:18 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2025-10-04 12:18:18 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-04 12:18:18 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-04 12:18:19 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-04 12:18:21 [restartedMain] INFO  c.t.B.BEphonestoreApplication - Starting BEphonestoreApplication using Java 17.0.16 with PID 21944 (D:\TMDT\CuoiKi\BEphonestore\target\classes started by ThongHo in D:\TMDT\CuoiKi\BEphonestore)
+2025-10-04 12:18:21 [restartedMain] INFO  c.t.B.BEphonestoreApplication - The following 1 profile is active: "dev"
+2025-10-04 12:18:21 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-04 12:18:21 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-04 12:18:23 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-04 12:18:23 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 165 ms. Found 8 JPA repository interfaces.
+2025-10-04 12:18:24 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-04 12:18:24 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-04 12:18:24 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-10-04 12:18:24 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-10-04 12:18:24 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3153 ms
+2025-10-04 12:18:24 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-04 12:18:25 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
+2025-10-04 12:18:25 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-04 12:18:25 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-04 12:18:25 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-04 12:18:25 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: 4690876c-1783-4dce-aab1-0806b2f66b6d
+2025-10-04 12:18:25 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-04 12:18:25 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-04 12:18:27 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-04 12:18:27 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-04 12:18:28 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-04 12:18:30 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-04 12:18:31 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@53268bbd, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@89fe441, org.springframework.security.web.context.SecurityContextHolderFilter@33d946e7, org.springframework.security.web.header.HeaderWriterFilter@597aa1a1, org.springframework.web.filter.CorsFilter@23f24d16, org.springframework.security.web.authentication.logout.LogoutFilter@1a2e5367, com.tmdt.BEphonestore.security.JwtAuthenticationFilter@65d3360f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@48bc55c7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@65a2e75f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@30450b9, org.springframework.security.web.session.SessionManagementFilter@2eabdd1c, org.springframework.security.web.access.ExceptionTranslationFilter@46b22599, org.springframework.security.web.access.intercept.AuthorizationFilter@281e6f8f]
+2025-10-04 12:18:31 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-10-04 12:18:31 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/api'
+2025-10-04 12:18:31 [restartedMain] INFO  c.t.B.BEphonestoreApplication - Started BEphonestoreApplication in 11.149 seconds (process running for 11.969)
+2025-10-04 12:18:35 [http-nio-8080-exec-4] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-04 12:18:35 [http-nio-8080-exec-4] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-04 12:18:35 [http-nio-8080-exec-4] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-10-04 12:18:35 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.html
+2025-10-04 12:18:35 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:18:35 [http-nio-8080-exec-4] WARN  o.s.w.s.h.HandlerMappingIntrospector - Cache miss for REQUEST dispatch to '/api/swagger-ui/index.html' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+2025-10-04 12:18:35 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.html
+2025-10-04 12:18:35 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui.css
+2025-10-04 12:18:35 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:18:35 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui.css
+2025-10-04 12:18:35 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-bundle.js
+2025-10-04 12:18:35 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-standalone-preset.js
+2025-10-04 12:18:35 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.css
+2025-10-04 12:18:35 [http-nio-8080-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:18:35 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-initializer.js
+2025-10-04 12:18:35 [http-nio-8080-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:18:35 [http-nio-8080-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:18:35 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:18:35 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.css
+2025-10-04 12:18:35 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-bundle.js
+2025-10-04 12:18:35 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-initializer.js
+2025-10-04 12:18:35 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-standalone-preset.js
+2025-10-04 12:18:35 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /v3/api-docs/swagger-config
+2025-10-04 12:18:35 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:18:35 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/favicon-32x32.png
+2025-10-04 12:18:35 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /v3/api-docs/swagger-config
+2025-10-04 12:18:35 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:18:35 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/favicon-32x32.png
+2025-10-04 12:19:51 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-10-04 12:19:51 [Thread-5] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-04 12:19:51 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-10-04 12:19:51 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-04 12:19:51 [restartedMain] INFO  c.t.B.BEphonestoreApplication - Starting BEphonestoreApplication using Java 17.0.16 with PID 21944 (D:\TMDT\CuoiKi\BEphonestore\target\classes started by ThongHo in D:\TMDT\CuoiKi\BEphonestore)
+2025-10-04 12:19:51 [restartedMain] INFO  c.t.B.BEphonestoreApplication - The following 1 profile is active: "dev"
+2025-10-04 12:19:51 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-04 12:19:52 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 73 ms. Found 8 JPA repository interfaces.
+2025-10-04 12:19:52 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-04 12:19:52 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-04 12:19:52 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-10-04 12:19:52 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-10-04 12:19:52 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 984 ms
+2025-10-04 12:19:52 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-04 12:19:52 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-04 12:19:52 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-04 12:19:52 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2025-10-04 12:19:52 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection ConnectionID:6 ClientConnectionId: af153abc-5cc9-4972-9d07-11acc658ffba
+2025-10-04 12:19:52 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2025-10-04 12:19:52 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-04 12:19:52 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-04 12:19:52 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-04 12:19:53 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-04 12:19:53 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6cfda6c0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6ff1c226, org.springframework.security.web.context.SecurityContextHolderFilter@38048527, org.springframework.security.web.header.HeaderWriterFilter@7b209099, org.springframework.web.filter.CorsFilter@c1ec3ee, org.springframework.security.web.authentication.logout.LogoutFilter@5ffb8e8f, com.tmdt.BEphonestore.security.JwtAuthenticationFilter@19d1572c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@711092f4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@ecb7017, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4e7a12b3, org.springframework.security.web.session.SessionManagementFilter@6e547319, org.springframework.security.web.access.ExceptionTranslationFilter@60353d1e, org.springframework.security.web.access.intercept.AuthorizationFilter@7f97b628]
+2025-10-04 12:19:53 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-10-04 12:19:53 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/api'
+2025-10-04 12:19:53 [restartedMain] INFO  c.t.B.BEphonestoreApplication - Started BEphonestoreApplication in 2.585 seconds (process running for 94.015)
+2025-10-04 12:19:53 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-10-04 12:20:19 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-10-04 12:20:19 [Thread-7] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-04 12:20:19 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2025-10-04 12:20:19 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2025-10-04 12:20:19 [restartedMain] INFO  c.t.B.BEphonestoreApplication - Starting BEphonestoreApplication using Java 17.0.16 with PID 21944 (D:\TMDT\CuoiKi\BEphonestore\target\classes started by ThongHo in D:\TMDT\CuoiKi\BEphonestore)
+2025-10-04 12:20:19 [restartedMain] INFO  c.t.B.BEphonestoreApplication - The following 1 profile is active: "dev"
+2025-10-04 12:20:19 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-04 12:20:20 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 118 ms. Found 8 JPA repository interfaces.
+2025-10-04 12:20:20 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-04 12:20:20 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-04 12:20:20 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-10-04 12:20:20 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-10-04 12:20:20 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 860 ms
+2025-10-04 12:20:20 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-04 12:20:20 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-04 12:20:20 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-04 12:20:20 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2025-10-04 12:20:20 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection ConnectionID:11 ClientConnectionId: a5988d9d-571b-49f8-a119-3cbb3db76460
+2025-10-04 12:20:20 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2025-10-04 12:20:20 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-04 12:20:20 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-04 12:20:20 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-04 12:20:21 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-04 12:20:21 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5c18bfb9, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@85fbcf2, org.springframework.security.web.context.SecurityContextHolderFilter@33080ef0, org.springframework.security.web.header.HeaderWriterFilter@3afff450, org.springframework.web.filter.CorsFilter@2c347a12, org.springframework.security.web.authentication.logout.LogoutFilter@18099343, com.tmdt.BEphonestore.security.JwtAuthenticationFilter@4f5fbc02, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7b746d2c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3eec4b66, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@a96179f, org.springframework.security.web.session.SessionManagementFilter@6f874779, org.springframework.security.web.access.ExceptionTranslationFilter@31bf217c, org.springframework.security.web.access.intercept.AuthorizationFilter@1ca75467]
+2025-10-04 12:20:21 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-10-04 12:20:21 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/api'
+2025-10-04 12:20:21 [restartedMain] INFO  c.t.B.BEphonestoreApplication - Started BEphonestoreApplication in 2.391 seconds (process running for 121.836)
+2025-10-04 12:20:21 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-10-04 12:20:23 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-04 12:20:23 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-04 12:20:23 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2025-10-04 12:20:23 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.html
+2025-10-04 12:20:23 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:20:23 [http-nio-8080-exec-1] WARN  o.s.w.s.h.HandlerMappingIntrospector - Cache miss for REQUEST dispatch to '/api/swagger-ui/index.html' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+2025-10-04 12:20:23 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.html
+2025-10-04 12:20:23 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui.css
+2025-10-04 12:20:23 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.css
+2025-10-04 12:20:23 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:20:23 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-standalone-preset.js
+2025-10-04 12:20:23 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-initializer.js
+2025-10-04 12:20:23 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-bundle.js
+2025-10-04 12:20:23 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:20:23 [http-nio-8080-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:20:23 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui.css
+2025-10-04 12:20:23 [http-nio-8080-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:20:23 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:20:23 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.css
+2025-10-04 12:20:23 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-standalone-preset.js
+2025-10-04 12:20:23 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-initializer.js
+2025-10-04 12:20:23 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-bundle.js
+2025-10-04 12:20:24 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /v3/api-docs/swagger-config
+2025-10-04 12:20:24 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:20:24 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /v3/api-docs/swagger-config
+2025-10-04 12:20:24 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/favicon-32x32.png
+2025-10-04 12:20:24 [http-nio-8080-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:20:24 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/favicon-32x32.png
+2025-10-04 12:20:29 [restartedMain] INFO  c.t.B.BEphonestoreApplication - Starting BEphonestoreApplication using Java 17.0.16 with PID 21328 (D:\TMDT\CuoiKi\BEphonestore\target\classes started by ThongHo in D:\TMDT\CuoiKi\BEphonestore)
+2025-10-04 12:20:29 [restartedMain] INFO  c.t.B.BEphonestoreApplication - The following 1 profile is active: "dev"
+2025-10-04 12:20:29 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-04 12:20:29 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-04 12:20:31 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-04 12:20:31 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 270 ms. Found 8 JPA repository interfaces.
+2025-10-04 12:20:32 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-04 12:20:32 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-04 12:20:32 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-10-04 12:20:32 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-10-04 12:20:32 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3210 ms
+2025-10-04 12:20:33 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-04 12:20:33 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
+2025-10-04 12:20:33 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-04 12:20:33 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-04 12:20:33 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-04 12:20:34 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: 68bfa8a6-0a3d-49c1-a3a0-9253d8b39053
+2025-10-04 12:20:34 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-04 12:20:34 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-04 12:20:36 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-04 12:20:36 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-04 12:20:36 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-04 12:20:39 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-04 12:20:39 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@281e6f8f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@36b3beaa, org.springframework.security.web.context.SecurityContextHolderFilter@2eabdd1c, org.springframework.security.web.header.HeaderWriterFilter@3223cc56, org.springframework.web.filter.CorsFilter@75aabf9e, org.springframework.security.web.authentication.logout.LogoutFilter@57883cfe, com.tmdt.BEphonestore.security.JwtAuthenticationFilter@70baad69, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@10b7a097, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@33d946e7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@53268bbd, org.springframework.security.web.session.SessionManagementFilter@34ba53fb, org.springframework.security.web.access.ExceptionTranslationFilter@384cc4cb, org.springframework.security.web.access.intercept.AuthorizationFilter@714defc1]
+2025-10-04 12:20:40 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-10-04 12:20:40 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/api'
+2025-10-04 12:20:40 [restartedMain] INFO  c.t.B.BEphonestoreApplication - Started BEphonestoreApplication in 11.33 seconds (process running for 12.134)
+2025-10-04 12:21:19 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-04 12:21:19 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-04 12:21:19 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-10-04 12:21:19 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.html
+2025-10-04 12:21:19 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:21:19 [http-nio-8080-exec-1] WARN  o.s.w.s.h.HandlerMappingIntrospector - Cache miss for REQUEST dispatch to '/api/swagger-ui/index.html' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+2025-10-04 12:21:19 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.html
+2025-10-04 12:21:19 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui.css
+2025-10-04 12:21:19 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.css
+2025-10-04 12:21:19 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-bundle.js
+2025-10-04 12:21:19 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-standalone-preset.js
+2025-10-04 12:21:19 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:21:19 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-initializer.js
+2025-10-04 12:21:19 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:21:19 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:21:19 [http-nio-8080-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:21:19 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:21:19 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui.css
+2025-10-04 12:21:19 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.css
+2025-10-04 12:21:19 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-bundle.js
+2025-10-04 12:21:19 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-standalone-preset.js
+2025-10-04 12:21:19 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-initializer.js
+2025-10-04 12:21:19 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /v3/api-docs/swagger-config
+2025-10-04 12:21:19 [http-nio-8080-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:21:19 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/favicon-32x32.png
+2025-10-04 12:21:19 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /v3/api-docs/swagger-config
+2025-10-04 12:21:19 [http-nio-8080-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:21:19 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/favicon-32x32.png
+2025-10-04 12:23:46 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-10-04 12:23:46 [Thread-5] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-04 12:23:46 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-10-04 12:23:46 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-04 12:23:46 [restartedMain] INFO  c.t.B.BEphonestoreApplication - Starting BEphonestoreApplication using Java 17.0.16 with PID 21328 (D:\TMDT\CuoiKi\BEphonestore\target\classes started by ThongHo in D:\TMDT\CuoiKi\BEphonestore)
+2025-10-04 12:23:46 [restartedMain] INFO  c.t.B.BEphonestoreApplication - The following 1 profile is active: "dev"
+2025-10-04 12:23:47 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-04 12:23:47 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 71 ms. Found 8 JPA repository interfaces.
+2025-10-04 12:23:47 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-04 12:23:47 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-04 12:23:47 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-10-04 12:23:47 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-10-04 12:23:47 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 974 ms
+2025-10-04 12:23:47 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-04 12:23:47 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-04 12:23:47 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-04 12:23:47 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2025-10-04 12:23:47 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection ConnectionID:6 ClientConnectionId: 416a7371-5dc1-4a43-a6e8-e9c2cc61cc43
+2025-10-04 12:23:47 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2025-10-04 12:23:47 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-04 12:23:48 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-04 12:23:48 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-04 12:23:48 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-04 12:23:49 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@24389ef7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3ca21409, org.springframework.security.web.context.SecurityContextHolderFilter@4db8e323, org.springframework.security.web.header.HeaderWriterFilter@43ca1808, org.springframework.web.filter.CorsFilter@3d623209, org.springframework.security.web.authentication.logout.LogoutFilter@35a5b4e5, com.tmdt.BEphonestore.security.JwtAuthenticationFilter@4544a8ed, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4778b326, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5461f999, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@53e9aafb, org.springframework.security.web.session.SessionManagementFilter@7e32a6d7, org.springframework.security.web.access.ExceptionTranslationFilter@12930b31, org.springframework.security.web.access.intercept.AuthorizationFilter@6c304ab4]
+2025-10-04 12:23:49 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-10-04 12:23:49 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/api'
+2025-10-04 12:23:49 [restartedMain] INFO  c.t.B.BEphonestoreApplication - Started BEphonestoreApplication in 2.769 seconds (process running for 201.3)
+2025-10-04 12:23:49 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-10-04 12:24:17 [restartedMain] INFO  c.t.B.BEphonestoreApplication - Starting BEphonestoreApplication using Java 17.0.16 with PID 21148 (D:\TMDT\CuoiKi\BEphonestore\target\classes started by ThongHo in D:\TMDT\CuoiKi\BEphonestore)
+2025-10-04 12:24:17 [restartedMain] INFO  c.t.B.BEphonestoreApplication - The following 1 profile is active: "dev"
+2025-10-04 12:24:17 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-04 12:24:17 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-04 12:24:18 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-04 12:24:18 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 166 ms. Found 8 JPA repository interfaces.
+2025-10-04 12:24:20 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-04 12:24:20 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-04 12:24:20 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-10-04 12:24:20 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-10-04 12:24:20 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3051 ms
+2025-10-04 12:24:20 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-04 12:24:20 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
+2025-10-04 12:24:20 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-04 12:24:21 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-04 12:24:21 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-04 12:24:21 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: b072db57-69a2-444b-98e1-520ab02ea57d
+2025-10-04 12:24:21 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-04 12:24:21 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-04 12:24:23 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-04 12:24:23 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-04 12:24:23 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-04 12:24:26 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-04 12:24:26 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@772a3016, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@281e6f8f, org.springframework.security.web.context.SecurityContextHolderFilter@3dc3d1cf, org.springframework.security.web.header.HeaderWriterFilter@10da3ced, org.springframework.web.filter.CorsFilter@36b3beaa, org.springframework.security.web.authentication.logout.LogoutFilter@74dd1a82, com.tmdt.BEphonestore.security.JwtAuthenticationFilter@3fa75387, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@486876b9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@10b7a097, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@75aabf9e, org.springframework.security.web.session.SessionManagementFilter@4e3ba81b, org.springframework.security.web.access.ExceptionTranslationFilter@58758201, org.springframework.security.web.access.intercept.AuthorizationFilter@17390a46]
+2025-10-04 12:24:27 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-10-04 12:24:27 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/api'
+2025-10-04 12:24:27 [restartedMain] INFO  c.t.B.BEphonestoreApplication - Started BEphonestoreApplication in 10.908 seconds (process running for 11.729)
+2025-10-04 12:24:30 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-04 12:24:30 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-04 12:24:30 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-10-04 12:24:30 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.html
+2025-10-04 12:24:31 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:24:31 [http-nio-8080-exec-1] WARN  o.s.w.s.h.HandlerMappingIntrospector - Cache miss for REQUEST dispatch to '/api/swagger-ui/index.html' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+2025-10-04 12:24:31 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.html
+2025-10-04 12:24:31 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui.css
+2025-10-04 12:24:31 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:24:31 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui.css
+2025-10-04 12:24:31 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-initializer.js
+2025-10-04 12:24:31 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.css
+2025-10-04 12:24:31 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-standalone-preset.js
+2025-10-04 12:24:31 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-bundle.js
+2025-10-04 12:24:31 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:24:31 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:24:31 [http-nio-8080-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:24:31 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:24:31 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.css
+2025-10-04 12:24:31 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-initializer.js
+2025-10-04 12:24:31 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-bundle.js
+2025-10-04 12:24:31 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-standalone-preset.js
+2025-10-04 12:24:31 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /v3/api-docs/swagger-config
+2025-10-04 12:24:31 [http-nio-8080-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:24:31 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /v3/api-docs/swagger-config
+2025-10-04 12:24:31 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/favicon-32x32.png
+2025-10-04 12:24:31 [http-nio-8080-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:24:31 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/favicon-32x32.png
+2025-10-04 12:24:31 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /v3/api-docs
+2025-10-04 12:24:31 [http-nio-8080-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:24:31 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /v3/api-docs
+2025-10-04 12:24:33 [http-nio-8080-exec-8] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 1286 ms
+2025-10-04 12:33:24 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing POST /products
+2025-10-04 12:33:24 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:33:24 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured POST /products
+2025-10-04 12:33:24 [http-nio-8080-exec-6] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.tmdt.BEphonestore.dto.response.ProductResponse> com.tmdt.BEphonestore.controller.ProductController.createProduct(com.tmdt.BEphonestore.dto.request.ProductRequest,org.springframework.web.multipart.MultipartFile) with 4 errors: [Field error in object 'productRequest' on field 'stock': rejected value [null]; codes [NotNull.productRequest.stock,NotNull.stock,NotNull.java.lang.Integer,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [productRequest.stock,stock]; arguments []; default message [stock]]; default message [Stock is required]] [Field error in object 'productRequest' on field 'price': rejected value [null]; codes [NotNull.productRequest.price,NotNull.price,NotNull.java.math.BigDecimal,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [productRequest.price,price]; arguments []; default message [price]]; default message [Price is required]] [Field error in object 'productRequest' on field 'categoryId': rejected value [null]; codes [NotNull.productRequest.categoryId,NotNull.categoryId,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [productRequest.categoryId,categoryId]; arguments []; default message [categoryId]]; default message [Category ID is required]] [Field error in object 'productRequest' on field 'name': rejected value [null]; codes [NotBlank.productRequest.name,NotBlank.name,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [productRequest.name,name]; arguments []; default message [name]]; default message [Product name is required]] ]
+2025-10-04 12:33:53 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing POST /products
+2025-10-04 12:33:53 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:33:53 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured POST /products
+2025-10-04 12:33:53 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.tmdt.BEphonestore.dto.response.ProductResponse> com.tmdt.BEphonestore.controller.ProductController.createProduct(com.tmdt.BEphonestore.dto.request.ProductRequest,org.springframework.web.multipart.MultipartFile) with 4 errors: [Field error in object 'productRequest' on field 'stock': rejected value [null]; codes [NotNull.productRequest.stock,NotNull.stock,NotNull.java.lang.Integer,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [productRequest.stock,stock]; arguments []; default message [stock]]; default message [Stock is required]] [Field error in object 'productRequest' on field 'price': rejected value [null]; codes [NotNull.productRequest.price,NotNull.price,NotNull.java.math.BigDecimal,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [productRequest.price,price]; arguments []; default message [price]]; default message [Price is required]] [Field error in object 'productRequest' on field 'name': rejected value [null]; codes [NotBlank.productRequest.name,NotBlank.name,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [productRequest.name,name]; arguments []; default message [name]]; default message [Product name is required]] [Field error in object 'productRequest' on field 'categoryId': rejected value [null]; codes [NotNull.productRequest.categoryId,NotNull.categoryId,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [productRequest.categoryId,categoryId]; arguments []; default message [categoryId]]; default message [Category ID is required]] ]
+2025-10-04 12:34:35 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 4 class path changes (0 additions, 0 deletions, 4 modifications)
+2025-10-04 12:34:36 [Thread-5] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-04 12:34:36 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-10-04 12:34:36 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-04 12:34:36 [restartedMain] INFO  c.t.B.BEphonestoreApplication - Starting BEphonestoreApplication using Java 17.0.16 with PID 21148 (D:\TMDT\CuoiKi\BEphonestore\target\classes started by ThongHo in D:\TMDT\CuoiKi\BEphonestore)
+2025-10-04 12:34:36 [restartedMain] INFO  c.t.B.BEphonestoreApplication - The following 1 profile is active: "dev"
+2025-10-04 12:34:36 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-04 12:34:36 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 59 ms. Found 8 JPA repository interfaces.
+2025-10-04 12:34:37 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-04 12:34:37 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-04 12:34:37 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-10-04 12:34:37 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-10-04 12:34:37 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 975 ms
+2025-10-04 12:34:37 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-04 12:34:37 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-04 12:34:37 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-04 12:34:37 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2025-10-04 12:34:37 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection ConnectionID:6 ClientConnectionId: 794d712a-b293-4339-a9b9-f44a482e927c
+2025-10-04 12:34:37 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2025-10-04 12:34:37 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-04 12:34:37 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-04 12:34:37 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-04 12:34:38 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-04 12:34:38 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@488f146c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@403a469e, org.springframework.security.web.context.SecurityContextHolderFilter@23c18a1b, org.springframework.security.web.header.HeaderWriterFilter@5edeab65, org.springframework.web.filter.CorsFilter@56b08ee0, org.springframework.security.web.authentication.logout.LogoutFilter@42494e85, com.tmdt.BEphonestore.security.JwtAuthenticationFilter@6e9a9d1c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@21235d84, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@a0d5f46, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1c491c26, org.springframework.security.web.session.SessionManagementFilter@4004f336, org.springframework.security.web.access.ExceptionTranslationFilter@767e93d4, org.springframework.security.web.access.intercept.AuthorizationFilter@19aa632b]
+2025-10-04 12:34:38 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-10-04 12:34:38 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/api'
+2025-10-04 12:34:38 [restartedMain] INFO  c.t.B.BEphonestoreApplication - Started BEphonestoreApplication in 2.591 seconds (process running for 623.136)
+2025-10-04 12:34:38 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-10-04 12:35:45 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-10-04 12:35:45 [Thread-7] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-04 12:35:45 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2025-10-04 12:35:45 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2025-10-04 12:35:45 [restartedMain] INFO  c.t.B.BEphonestoreApplication - Starting BEphonestoreApplication using Java 17.0.16 with PID 21148 (D:\TMDT\CuoiKi\BEphonestore\target\classes started by ThongHo in D:\TMDT\CuoiKi\BEphonestore)
+2025-10-04 12:35:45 [restartedMain] INFO  c.t.B.BEphonestoreApplication - The following 1 profile is active: "dev"
+2025-10-04 12:35:46 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-04 12:35:46 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 59 ms. Found 8 JPA repository interfaces.
+2025-10-04 12:35:46 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-04 12:35:46 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-04 12:35:46 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-10-04 12:35:46 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-10-04 12:35:46 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 745 ms
+2025-10-04 12:35:46 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-04 12:35:46 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-04 12:35:46 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-04 12:35:46 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2025-10-04 12:35:46 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection ConnectionID:12 ClientConnectionId: e4d63681-690c-4cf8-9e43-82d3f01fc42f
+2025-10-04 12:35:46 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2025-10-04 12:35:46 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-04 12:35:47 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-04 12:35:47 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-04 12:35:47 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-04 12:35:47 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@68ead3b2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@57d3d5bb, org.springframework.security.web.context.SecurityContextHolderFilter@49782c9b, org.springframework.security.web.header.HeaderWriterFilter@446a8bd0, org.springframework.web.filter.CorsFilter@3b487495, org.springframework.security.web.authentication.logout.LogoutFilter@492ec519, com.tmdt.BEphonestore.security.JwtAuthenticationFilter@5b981eb0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2f26d0c4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3f02eafb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@14036e46, org.springframework.security.web.session.SessionManagementFilter@7bb0bec4, org.springframework.security.web.access.ExceptionTranslationFilter@4f1525bd, org.springframework.security.web.access.intercept.AuthorizationFilter@78eaf1d3]
+2025-10-04 12:35:47 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-10-04 12:35:47 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/api'
+2025-10-04 12:35:47 [restartedMain] INFO  c.t.B.BEphonestoreApplication - Started BEphonestoreApplication in 2.049 seconds (process running for 692.376)
+2025-10-04 12:35:47 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-10-04 12:35:54 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-04 12:35:54 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-04 12:35:54 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2025-10-04 12:35:54 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.html
+2025-10-04 12:35:54 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:35:54 [http-nio-8080-exec-1] WARN  o.s.w.s.h.HandlerMappingIntrospector - Cache miss for REQUEST dispatch to '/api/swagger-ui/index.html' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+2025-10-04 12:35:54 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.html
+2025-10-04 12:35:54 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui.css
+2025-10-04 12:35:54 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.css
+2025-10-04 12:35:54 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-bundle.js
+2025-10-04 12:35:54 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:35:54 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-initializer.js
+2025-10-04 12:35:54 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:35:54 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:35:54 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-standalone-preset.js
+2025-10-04 12:35:54 [http-nio-8080-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:35:54 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-bundle.js
+2025-10-04 12:35:54 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui.css
+2025-10-04 12:35:54 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.css
+2025-10-04 12:35:54 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:35:54 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-initializer.js
+2025-10-04 12:35:54 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-standalone-preset.js
+2025-10-04 12:35:55 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /v3/api-docs/swagger-config
+2025-10-04 12:35:55 [http-nio-8080-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:35:55 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /v3/api-docs/swagger-config
+2025-10-04 12:35:55 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/favicon-32x32.png
+2025-10-04 12:35:55 [http-nio-8080-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:35:55 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/favicon-32x32.png
+2025-10-04 12:35:55 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /v3/api-docs
+2025-10-04 12:35:55 [http-nio-8080-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:35:55 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /v3/api-docs
+2025-10-04 12:35:56 [http-nio-8080-exec-8] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 732 ms
+2025-10-04 12:36:21 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing POST /products
+2025-10-04 12:36:21 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-10-04 12:36:21 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured POST /products
+2025-10-04 12:36:21 [http-nio-8080-exec-6] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.tmdt.BEphonestore.dto.response.ProductResponse> com.tmdt.BEphonestore.controller.ProductController.createProduct(com.tmdt.BEphonestore.dto.request.ProductRequest,org.springframework.web.multipart.MultipartFile) with 4 errors: [Field error in object 'productRequest' on field 'name': rejected value [null]; codes [NotBlank.productRequest.name,NotBlank.name,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [productRequest.name,name]; arguments []; default message [name]]; default message [Product name is required]] [Field error in object 'productRequest' on field 'stock': rejected value [null]; codes [NotNull.productRequest.stock,NotNull.stock,NotNull.java.lang.Integer,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [productRequest.stock,stock]; arguments []; default message [stock]]; default message [Stock is required]] [Field error in object 'productRequest' on field 'categoryId': rejected value [null]; codes [NotNull.productRequest.categoryId,NotNull.categoryId,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [productRequest.categoryId,categoryId]; arguments []; default message [categoryId]]; default message [Category ID is required]] [Field error in object 'productRequest' on field 'price': rejected value [null]; codes [NotNull.productRequest.price,NotNull.price,NotNull.java.math.BigDecimal,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [productRequest.price,price]; arguments []; default message [price]]; default message [Price is required]] ]
+2025-10-04 12:37:00 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-10-04 12:37:00 [Thread-11] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-04 12:37:00 [Thread-11] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+2025-10-04 12:37:00 [Thread-11] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+2025-10-04 12:37:00 [restartedMain] INFO  c.t.B.BEphonestoreApplication - Starting BEphonestoreApplication using Java 17.0.16 with PID 21148 (D:\TMDT\CuoiKi\BEphonestore\target\classes started by ThongHo in D:\TMDT\CuoiKi\BEphonestore)
+2025-10-04 12:37:00 [restartedMain] INFO  c.t.B.BEphonestoreApplication - The following 1 profile is active: "dev"

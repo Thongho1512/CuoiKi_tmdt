@@ -88,8 +88,6 @@ public class ProductServiceImpl implements ProductService {
         if (image != null && !image.isEmpty()) {
             String fileName = fileStorageService.storeFile(image);
             imageUrl = "/uploads/" + fileName;
-        } else if (request.getImageUrl() != null && !request.getImageUrl().isEmpty()) {
-            imageUrl = request.getImageUrl();
         }
 
         Product product = Product.builder()
@@ -130,8 +128,6 @@ public class ProductServiceImpl implements ProductService {
             // Upload new image
             String fileName = fileStorageService.storeFile(image);
             product.setImageUrl("/uploads/" + fileName);
-        } else if (request.getImageUrl() != null && !request.getImageUrl().isEmpty()) {
-            product.setImageUrl(request.getImageUrl());
         }
 
         product.setName(request.getName());

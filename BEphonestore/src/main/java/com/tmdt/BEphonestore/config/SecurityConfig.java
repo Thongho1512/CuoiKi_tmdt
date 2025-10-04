@@ -59,7 +59,29 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         // Public endpoints
-                        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html").permitAll()
+                        // Allow swagger and API docs with and without the servlet context-path (/api)
+                        .requestMatchers(
+                                "/swagger-ui/**",
+                                "/swagger-ui/index.html",
+                                "/swagger-ui.html",
+                                "/v3/api-docs/**",
+                                "/v3/api-docs",
+                                "/swagger-resources/**",
+                                "/swagger/**",
+                                "/webjars/**",
+                                "/swagger-ui/swagger-initializer.js",
+                                "/swagger-ui/swagger-ui-bundle.js",
+                                "/swagger-ui/swagger-ui-standalone-preset.js")
+                        .permitAll()
+                        .requestMatchers(
+                                "/api/swagger-ui/**",
+                                "/api/swagger-ui/index.html",
+                                "/api/swagger-ui.html",
+                                "/api/v3/api-docs/**",
+                                "/api/v3/api-docs",
+                                "/api/swagger-resources/**",
+                                "/api/webjars/**")
+                        .permitAll()
                         .requestMatchers("/auth/**").permitAll()
                         .requestMatchers("/categories/**").permitAll()
                         .requestMatchers("/products/**").permitAll()
