@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Product, Category } from '@/types';
 import { productApi } from '@/api/productApi';
 import { categoryApi } from '@/api/categoryApi';
-import { getCategoryImageUrl } from '@/utils/imageHelper';
+import { getCategoryImageUrl } from '@/utils/imageHelper'; // Đổi từ imageHelpers
 import { ProductCard } from '@/components/product/ProductCard';
 
 export const HomePage: React.FC = () => {
@@ -62,7 +62,11 @@ export const HomePage: React.FC = () => {
                   alt={category.name}
                   className="w-16 h-16 mx-auto mb-4 object-contain"
                   onError={(e) => {
-                    e.currentTarget.src = '/placeholder-category.jpg';
+                    const target = e.currentTarget;
+                    // Chỉ set placeholder nếu chưa phải là placeholder
+                    if (!target.src.includes('placeholder-category.jpg')) {
+                      target.src = '/placeholder-category.jpg';
+                    }
                   }}
                 />
                 <h3 className="font-semibold">{category.name}</h3>

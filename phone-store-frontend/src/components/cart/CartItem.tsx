@@ -2,7 +2,7 @@ import React from 'react';
 import { TrashIcon, MinusIcon, PlusIcon } from '@heroicons/react/24/outline';
 import { CartItem as CartItemType } from '@/types/cart.types';
 import { formatCurrency } from '@/utils/formatters';
-import { getImageUrl } from '@/utils/imageHelper';
+import { getImageUrl } from '@/utils/imageHelper'; // Đổi từ imageHelpers
 
 interface CartItemProps {
   item: CartItemType;
@@ -18,7 +18,11 @@ export const CartItem: React.FC<CartItemProps> = ({ item, onUpdateQuantity, onRe
         alt={item.productName}
         className="w-20 h-20 object-cover rounded"
         onError={(e) => {
-          e.currentTarget.src = '/placeholder-phone.jpg';
+          const target = e.currentTarget;
+          // Chỉ set placeholder nếu chưa phải là placeholder
+          if (!target.src.includes('placeholder-phone.jpg')) {
+            target.src = '/placeholder-phone.jpg';
+          }
         }}
       />
 

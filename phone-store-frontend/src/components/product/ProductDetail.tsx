@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { MinusIcon, PlusIcon, ShoppingCartIcon } from '@heroicons/react/24/outline';
 import { Product } from '@/types/product.types';
 import { formatCurrency } from '@/utils/formatters';
-import { getImageUrl } from '@/utils/imageHelper';
+import { getImageUrl } from '@/utils/imageHelper'; // Đổi từ imageHelpers
 import { useCart } from '@/hooks/useCart';
 import { useAuth } from '@/hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
@@ -56,7 +56,11 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
           alt={product.name}
           className="w-full h-full object-contain"
           onError={(e) => {
-            e.currentTarget.src = '/placeholder-phone.jpg';
+            const target = e.currentTarget;
+            // Chỉ set placeholder nếu chưa phải là placeholder
+            if (!target.src.includes('placeholder-phone.jpg')) {
+              target.src = '/placeholder-phone.jpg';
+            }
           }}
         />
       </div>

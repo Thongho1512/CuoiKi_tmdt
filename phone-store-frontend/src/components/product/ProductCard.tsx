@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ShoppingCartIcon } from '@heroicons/react/24/outline';
 import { Product } from '@/types/product.types';
 import { formatCurrency } from '@/utils/formatters';
-import { getImageUrl } from '@/utils/imageHelper';
+import { getImageUrl } from '@/utils/imageHelper'; // Đổi từ imageHelpers
 import { useCart } from '@/hooks/useCart';
 import { useAuth } from '@/hooks/useAuth';
 import toast from 'react-hot-toast';
@@ -44,7 +44,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           alt={product.name}
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
           onError={(e) => {
-            e.currentTarget.src = '/placeholder-phone.jpg';
+            const target = e.currentTarget;
+            // Chỉ set placeholder nếu chưa phải là placeholder
+            if (!target.src.includes('placeholder-phone.jpg')) {
+              target.src = '/placeholder-phone.jpg';
+            }
           }}
         />
         {product.stock === 0 && (
