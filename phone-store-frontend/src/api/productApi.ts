@@ -68,13 +68,19 @@ export const productApi = {
     formData.append('price', data.price.toString());
     formData.append('stock', data.stock.toString());
     formData.append('categoryId', data.categoryId.toString());
-    formData.append('imageUrl', data.imageUrl || '');
     formData.append('specifications', data.specifications || '');
     formData.append('status', data.status || 'ACTIVE');
+    
+    // Only append imageUrl if no new image is being uploaded
+    if (!image) {
+      formData.append('imageUrl', data.imageUrl || '');
+    }
     
     // Append image if provided
     if (image) {
       formData.append('image', image);
+      // Log for debugging
+      console.log('Uploading file:', image.name, 'Type:', image.type, 'Size:', image.size);
     }
     
     const response = await axiosInstance.put(`/products/${id}`, formData, {

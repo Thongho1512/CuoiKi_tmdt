@@ -30,4 +30,6 @@ public class ProductRequest {
     private String specifications;
 
     private ProductStatus status;
+    // This field is used only when no file is uploaded
+    private String imageUrl;
 }

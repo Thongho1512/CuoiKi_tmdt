@@ -15,7 +15,7 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({
   onImageSelect,
   onImageRemove,
   label = 'Hình ảnh',
-  accept = 'image/jpeg,image/png,image/jpg,image/gif,image/webp',
+  accept = 'image/jpeg,image/jpg,image/png,image/gif,image/webp,image/bmp,image/*',
   maxSize = 5,
 }) => {
   const [preview, setPreview] = useState<string | undefined>(currentImage);
@@ -31,11 +31,27 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({
     const file = e.target.files?.[0];
     if (!file) return;
 
-    // Validate file type
-    const validTypes = accept.split(',').map(t => t.trim());
-    const fileType = file.type;
-    if (!validTypes.includes(fileType)) {
-      setError('Định dạng file không hợp lệ. Chỉ chấp nhận: JPG, PNG, GIF, WebP');
+    // More comprehensive file type validation
+    const validTypes = [
+      'image/jpeg',
+      'image/jpg', 
+      'image/png',
+      'image/gif',
+      'image/webp',
+      'image/bmp',
+      'image/pjpeg',     // Progressive JPEG
+      'image/x-png',     // Alternative PNG mime type
+      'image/x-ms-bmp'   // Alternative BMP mime type
+    ];
+
+    const fileType = file.type.toLowerCase();
+    
+    // Check if it's an image file (more lenient check)
+    const isImage = fileType.startsWith('image/') || 
+                   file.name.match(/\.(jpg|jpeg|jfif|png|gif|webp|bmp)$/i);
+    
+    if (!isImage && !validTypes.includes(fileType)) {
+      setError('Định dạng file không hợp lệ. Chỉ chấp nhận: JPG, JPEG, PNG, GIF, WebP, BMP');
       return;
     }
 
@@ -48,10 +64,21 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({
 
     setError('');
     
+    // Log file info for debugging
+    console.log('Selected file:', {
+      name: file.name,
+      type: file.type,
+      size: file.size,
+      lastModified: new Date(file.lastModified).toISOString()
+    });
+    
     // Create preview
     const reader = new FileReader();
     reader.onloadend = () => {
       setPreview(reader.result as string);
+    };
+    reader.onerror = () => {
+      setError('Không thể đọc file. Vui lòng thử lại.');
     };
     reader.readAsDataURL(file);
 
@@ -136,7 +163,7 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({
           )}
 
           <div className="mt-2 text-xs text-gray-500 space-y-1">
-            <p>• Định dạng: JPG, PNG, GIF, WebP</p>
+            <p>• Định dạng: JPG, JPEG, PNG, GIF, WebP, BMP</p>
             <p>• Kích thước tối đa: {maxSize}MB</p>
             <p>• Khuyến nghị: 800x800px</p>
           </div>

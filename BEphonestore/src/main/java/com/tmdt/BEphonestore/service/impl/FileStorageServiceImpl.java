@@ -21,9 +21,9 @@ public class FileStorageServiceImpl implements FileStorageService {
 
     private final Path fileStorageLocation;
 
-    // Allowed image extensions
+    // Allowed image extensions (including jfif which is a JPEG format)
     private static final List<String> ALLOWED_EXTENSIONS = Arrays.asList(
-            "jpg", "jpeg", "png", "gif", "webp", "bmp");
+            "jpg", "jpeg", "png", "gif", "webp", "bmp", "jfif");
 
     // Max file size: 5MB
     private static final long MAX_FILE_SIZE = 5 * 1024 * 1024;
@@ -57,20 +57,74 @@ public class FileStorageServiceImpl implements FileStorageService {
             throw new BadRequestException("Filename contains invalid path sequence: " + originalFileName);
         }
 
-        // Get file extension
+        // Get file extension - try multiple methods
         String fileExtension = "";
-        if (originalFileName.contains(".")) {
-            fileExtension = originalFileName.substring(originalFileName.lastIndexOf(".") + 1).toLowerCase();
+
+        // Method 1: Extract from filename
+        int lastDotIndex = originalFileName.lastIndexOf(".");
+        if (lastDotIndex > 0 && lastDotIndex < originalFileName.length() - 1) {
+            fileExtension = originalFileName.substring(lastDotIndex + 1).toLowerCase();
         }
+
+        // Method 2: If no extension or just a dot, try content type
+        if (fileExtension.isEmpty() || fileExtension.length() > 4) {
+            String contentType = file.getContentType();
+            if (contentType != null) {
+                contentType = contentType.toLowerCase();
+                switch (contentType) {
+                    case "image/jpeg":
+                    case "image/jpg":
+                    case "image/pjpeg": // Progressive JPEG
+                    case "image/jfif": // JFIF format
+                        fileExtension = "jpg";
+                        break;
+                    case "image/png":
+                    case "image/x-png":
+                        fileExtension = "png";
+                        break;
+                    case "image/gif":
+                        fileExtension = "gif";
+                        break;
+                    case "image/webp":
+                        fileExtension = "webp";
+                        break;
+                    case "image/bmp":
+                    case "image/x-ms-bmp":
+                        fileExtension = "bmp";
+                        break;
+                    default:
+                        if (contentType.startsWith("image/")) {
+                            fileExtension = contentType.substring(6);
+                        }
+                }
+            }
+        }
+
+        // Normalize common variations
+        if (fileExtension.equals("jpeg")) {
+            fileExtension = "jpg";
+        } else if (fileExtension.equals("jfif")) {
+            fileExtension = "jpg"; // JFIF is actually JPEG format
+        }
+
+        // Debug logging
+        System.out.println("Original filename: " + originalFileName);
+        System.out.println("Detected extension: " + fileExtension);
+        System.out.println("Content type: " + file.getContentType());
 
         // Validate extension
         if (!ALLOWED_EXTENSIONS.contains(fileExtension)) {
             throw new BadRequestException(
-                    "Invalid file type. Allowed types: " + String.join(", ", ALLOWED_EXTENSIONS));
+                    "Invalid file type. Allowed types: " + String.join(", ", ALLOWED_EXTENSIONS) +
+                            ". Detected: " + fileExtension);
         }
 
-        // Generate unique filename
-        String newFileName = UUID.randomUUID().toString() + "." + fileExtension;
+        // Generate unique filename - always save as jpg for JPEG variants
+        String saveExtension = fileExtension;
+        if (fileExtension.equals("jfif")) {
+            saveExtension = "jpg";
+        }
+        String newFileName = UUID.randomUUID().toString() + "." + saveExtension;
 
         try {
             // Copy file to target location

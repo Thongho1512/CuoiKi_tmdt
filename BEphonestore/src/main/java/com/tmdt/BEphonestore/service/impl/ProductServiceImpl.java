@@ -109,6 +109,7 @@ public class ProductServiceImpl implements ProductService {
     public ProductResponse updateProduct(Long id, ProductRequest request, MultipartFile image) {
         Product product = findProductById(id);
 
+        // Update category if changed
         if (request.getCategoryId() != null &&
                 !request.getCategoryId().equals(product.getCategory().getId())) {
             Category category = categoryRepository.findById(request.getCategoryId())
@@ -118,29 +119,59 @@ public class ProductServiceImpl implements ProductService {
 
         // Handle image upload
         if (image != null && !image.isEmpty()) {
+            // Log for debugging
+            System.out.println("Updating product image:");
+            System.out.println("- File name: " + image.getOriginalFilename());
+            System.out.println("- Content type: " + image.getContentType());
+            System.out.println("- Size: " + image.getSize());
+
             // Delete old image if exists
-            if (product.getImageUrl() != null && !product.getImageUrl().isEmpty() &&
-                    product.getImageUrl().startsWith("/uploads/")) {
-                String oldFileName = product.getImageUrl().replace("/uploads/", "");
-                fileStorageService.deleteFile(oldFileName);
+            if (product.getImageUrl() != null && !product.getImageUrl().isEmpty()) {
+                String oldImageUrl = product.getImageUrl();
+                System.out.println("- Old image URL: " + oldImageUrl);
+
+                // Check if it's a local file (starts with /uploads/)
+                if (oldImageUrl.startsWith("/uploads/")) {
+                    String oldFileName = oldImageUrl.replace("/uploads/", "");
+                    System.out.println("- Deleting old file: " + oldFileName);
+                    fileStorageService.deleteFile(oldFileName);
+                }
             }
 
             // Upload new image
-            String fileName = fileStorageService.storeFile(image);
-            product.setImageUrl("/uploads/" + fileName);
+            try {
+                String fileName = fileStorageService.storeFile(image);
+                String newImageUrl = "/uploads/" + fileName;
+                product.setImageUrl(newImageUrl);
+                System.out.println("- New image URL: " + newImageUrl);
+            } catch (Exception e) {
+                System.err.println("Error uploading image: " + e.getMessage());
+                throw e;
+            }
         }
 
-        product.setName(request.getName());
-        product.setDescription(request.getDescription());
-        product.setPrice(request.getPrice());
-        product.setStock(request.getStock());
-        product.setSpecifications(request.getSpecifications());
-
+        // Update other fields
+        if (request.getName() != null && !request.getName().trim().isEmpty()) {
+            product.setName(request.getName());
+        }
+        if (request.getDescription() != null) {
+            product.setDescription(request.getDescription());
+        }
+        if (request.getPrice() != null && request.getPrice().compareTo(BigDecimal.ZERO) > 0) {
+            product.setPrice(request.getPrice());
+        }
+        if (request.getStock() != null && request.getStock() >= 0) {
+            product.setStock(request.getStock());
+        }
+        if (request.getSpecifications() != null) {
+            product.setSpecifications(request.getSpecifications());
+        }
         if (request.getStatus() != null) {
             product.setStatus(request.getStatus());
         }
 
-        return mapToResponse(productRepository.save(product));
+        Product updatedProduct = productRepository.save(product);
+        return mapToResponse(updatedProduct);
     }
 
     @Override

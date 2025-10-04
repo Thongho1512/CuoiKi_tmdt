@@ -96,6 +96,14 @@ public class ProductController {
             @PathVariable Long id,
             @Valid @ModelAttribute ProductRequest request,
             @RequestParam(value = "image", required = false) MultipartFile image) {
+
+        // Debug logging
+        if (image != null) {
+            System.out.println("Received file: " + image.getOriginalFilename());
+            System.out.println("File size: " + image.getSize());
+            System.out.println("Content type: " + image.getContentType());
+        }
+
         ProductResponse product = productService.updateProduct(id, request, image);
         return ResponseEntity.ok(product);
     }
