@@ -1,8 +1,9 @@
-import React from 'react';
+// src/components/cart/CartItem.tsx
+import React, { useState, useCallback } from 'react';
 import { TrashIcon, MinusIcon, PlusIcon } from '@heroicons/react/24/outline';
 import { CartItem as CartItemType } from '@/types/cart.types';
 import { formatCurrency } from '@/utils/formatters';
-import { getImageUrl } from '@/utils/imageHelper'; // Đổi từ imageHelpers
+import { getImageUrl } from '@/utils/imageHelper';
 
 interface CartItemProps {
   item: CartItemType;
@@ -11,19 +12,28 @@ interface CartItemProps {
 }
 
 export const CartItem: React.FC<CartItemProps> = ({ item, onUpdateQuantity, onRemove }) => {
+  // ✅ THÊM: State để track image error
+  const [imageError, setImageError] = useState(false);
+
+  // ✅ THÊM: Image error handler
+  const handleImageError = useCallback((e: React.SyntheticEvent<HTMLImageElement>) => {
+    if (!imageError) {
+      setImageError(true);
+      e.currentTarget.src = '/placeholder-phone.jpg';
+    }
+  }, [imageError]);
+
+  const imageUrl = imageError ? '/placeholder-phone.jpg' : getImageUrl(item.productImage);
+
   return (
     <div className="flex items-center space-x-4 bg-white p-4 rounded-lg shadow">
+      {/* Image - ✅ SỬA LẠI */}
       <img
-        src={getImageUrl(item.productImage)}
+        src={imageUrl}
         alt={item.productName}
         className="w-20 h-20 object-cover rounded"
-        onError={(e) => {
-          const target = e.currentTarget;
-          // Chỉ set placeholder nếu chưa phải là placeholder
-          if (!target.src.includes('placeholder-phone.jpg')) {
-            target.src = '/placeholder-phone.jpg';
-          }
-        }}
+        onError={handleImageError}
+        loading="lazy"
       />
 
       <div className="flex-1">

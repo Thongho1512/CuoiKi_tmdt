@@ -1,4 +1,8 @@
+// src/components/product/ProductFilter.tsx
+// ✅ SỬA: Đồng bộ category từ URL
+
 import React, { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Category } from '@/types/category.types';
 import { categoryApi } from '@/api/categoryApi';
 import { SORT_OPTIONS } from '@/utils/constants';
@@ -8,6 +12,7 @@ interface ProductFilterProps {
 }
 
 export const ProductFilter: React.FC<ProductFilterProps> = ({ onFilterChange }) => {
+  const [searchParams] = useSearchParams();
   const [categories, setCategories] = useState<Category[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
   const [priceRange, setPriceRange] = useState({ min: '', max: '' });
@@ -16,6 +21,14 @@ export const ProductFilter: React.FC<ProductFilterProps> = ({ onFilterChange }) 
   useEffect(() => {
     fetchCategories();
   }, []);
+
+  // ✅ THÊM: Đồng bộ category từ URL khi component mount
+  useEffect(() => {
+    const categoryParam = searchParams.get('category');
+    if (categoryParam) {
+      setSelectedCategory(parseInt(categoryParam));
+    }
+  }, [searchParams]);
 
   const fetchCategories = async () => {
     try {
@@ -37,6 +50,11 @@ export const ProductFilter: React.FC<ProductFilterProps> = ({ onFilterChange }) 
     });
   }, [selectedCategory, priceRange, sortBy]);
 
+  // ✅ SỬA: Handler khi click category
+  const handleCategoryChange = (categoryId: number | null) => {
+    setSelectedCategory(categoryId);
+  };
+
   return (
     <div className="bg-white rounded-lg shadow-md p-6 space-y-6">
       {/* Category Filter */}
@@ -44,8 +62,8 @@ export const ProductFilter: React.FC<ProductFilterProps> = ({ onFilterChange }) 
         <h3 className="font-semibold text-lg mb-4">Hãng điện thoại</h3>
         <div className="space-y-2">
           <button
-            onClick={() => setSelectedCategory(null)}
-            className={`block w-full text-left px-4 py-2 rounded-lg ${
+            onClick={() => handleCategoryChange(null)}
+            className={`block w-full text-left px-4 py-2 rounded-lg transition-colors ${
               selectedCategory === null
                 ? 'bg-primary-100 text-primary-700 font-medium'
                 : 'hover:bg-gray-100'
@@ -56,8 +74,8 @@ export const ProductFilter: React.FC<ProductFilterProps> = ({ onFilterChange }) 
           {categories.map((category) => (
             <button
               key={category.id}
-              onClick={() => setSelectedCategory(category.id)}
-              className={`block w-full text-left px-4 py-2 rounded-lg ${
+              onClick={() => handleCategoryChange(category.id)}
+              className={`block w-full text-left px-4 py-2 rounded-lg transition-colors ${
                 selectedCategory === category.id
                   ? 'bg-primary-100 text-primary-700 font-medium'
                   : 'hover:bg-gray-100'
@@ -113,7 +131,7 @@ export const ProductFilter: React.FC<ProductFilterProps> = ({ onFilterChange }) 
           setPriceRange({ min: '', max: '' });
           setSortBy('id-DESC');
         }}
-        className="w-full px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300"
+        className="w-full px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors"
       >
         Đặt lại bộ lọc
       </button>

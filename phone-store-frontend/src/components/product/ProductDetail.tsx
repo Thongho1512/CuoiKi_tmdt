@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+// src/components/product/ProductDetail.tsx
+import React, { useState, useCallback } from 'react';
 import { MinusIcon, PlusIcon, ShoppingCartIcon } from '@heroicons/react/24/outline';
 import { Product } from '@/types/product.types';
 import { formatCurrency } from '@/utils/formatters';
-import { getImageUrl } from '@/utils/imageHelper'; // Đổi từ imageHelpers
+import { getImageUrl } from '@/utils/imageHelper';
 import { useCart } from '@/hooks/useCart';
 import { useAuth } from '@/hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
@@ -17,6 +18,10 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
   const { addToCart } = useCart();
   const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
+  
+  // ✅ THÊM: State để track image
+  const [imageError, setImageError] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const handleQuantityChange = (delta: number) => {
     const newQuantity = quantity + delta;
@@ -47,21 +52,35 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
     });
   };
 
+  // ✅ THÊM: Image handlers
+  const handleImageError = useCallback((e: React.SyntheticEvent<HTMLImageElement>) => {
+    if (!imageError) {
+      setImageError(true);
+      e.currentTarget.src = '/placeholder-phone.jpg';
+    }
+  }, [imageError]);
+
+  const handleImageLoad = useCallback(() => {
+    setImageLoaded(true);
+  }, []);
+
+  const imageUrl = imageError ? '/placeholder-phone.jpg' : getImageUrl(product.imageUrl);
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-      {/* Product Image */}
-      <div className="bg-gray-100 rounded-lg overflow-hidden">
+      {/* Product Image - ✅ SỬA LẠI */}
+      <div className="relative bg-gray-100 rounded-lg overflow-hidden">
+        {!imageLoaded && (
+          <div className="absolute inset-0 bg-gray-200 animate-pulse" />
+        )}
         <img
-          src={getImageUrl(product.imageUrl)}
+          src={imageUrl}
           alt={product.name}
-          className="w-full h-full object-contain"
-          onError={(e) => {
-            const target = e.currentTarget;
-            // Chỉ set placeholder nếu chưa phải là placeholder
-            if (!target.src.includes('placeholder-phone.jpg')) {
-              target.src = '/placeholder-phone.jpg';
-            }
-          }}
+          className={`w-full h-full object-contain transition-opacity duration-300 ${
+            imageLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
+          onError={handleImageError}
+          onLoad={handleImageLoad}
         />
       </div>
 

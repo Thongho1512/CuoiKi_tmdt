@@ -1,9 +1,10 @@
-import React from 'react';
+// src/components/product/ProductCard.tsx
+import React, { useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { ShoppingCartIcon } from '@heroicons/react/24/outline';
 import { Product } from '@/types/product.types';
 import { formatCurrency } from '@/utils/formatters';
-import { getImageUrl } from '@/utils/imageHelper'; // Đổi từ imageHelpers
+import { getImageUrl } from '@/utils/imageHelper';
 import { useCart } from '@/hooks/useCart';
 import { useAuth } from '@/hooks/useAuth';
 import toast from 'react-hot-toast';
@@ -15,6 +16,10 @@ interface ProductCardProps {
 export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const { addToCart } = useCart();
   const { isAuthenticated } = useAuth();
+  
+  // ✅ THÊM: State để track image
+  const [imageError, setImageError] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -32,24 +37,39 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     addToCart({ productId: product.id, quantity: 1 });
   };
 
+  // ✅ THÊM: Image handlers
+  const handleImageError = useCallback((e: React.SyntheticEvent<HTMLImageElement>) => {
+    if (!imageError) {
+      setImageError(true);
+      e.currentTarget.src = '/placeholder-phone.jpg';
+    }
+  }, [imageError]);
+
+  const handleImageLoad = useCallback(() => {
+    setImageLoaded(true);
+  }, []);
+
+  const imageUrl = imageError ? '/placeholder-phone.jpg' : getImageUrl(product.imageUrl);
+
   return (
     <Link
       to={`/products/${product.id}`}
       className="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
     >
-      {/* Image */}
+      {/* Image - ✅ SỬA LẠI */}
       <div className="relative aspect-square overflow-hidden bg-gray-100">
+        {!imageLoaded && (
+          <div className="absolute inset-0 bg-gray-200 animate-pulse" />
+        )}
         <img
-          src={getImageUrl(product.imageUrl)}
+          src={imageUrl}
           alt={product.name}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-          onError={(e) => {
-            const target = e.currentTarget;
-            // Chỉ set placeholder nếu chưa phải là placeholder
-            if (!target.src.includes('placeholder-phone.jpg')) {
-              target.src = '/placeholder-phone.jpg';
-            }
-          }}
+          className={`w-full h-full object-cover group-hover:scale-110 transition-transform duration-300 ${
+            imageLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
+          onError={handleImageError}
+          onLoad={handleImageLoad}
+          loading="lazy"
         />
         {product.stock === 0 && (
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">

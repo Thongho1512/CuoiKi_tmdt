@@ -1,3 +1,6 @@
+// src/pages/admin/AdminCategoriesPage.tsx
+// ✅ THÊM: Component riêng cho category image
+
 import React, { useEffect, useState } from 'react';
 import { PlusIcon } from '@heroicons/react/24/outline';
 import { Category, CategoryRequest } from '@/types';
@@ -6,7 +9,45 @@ import { DataTable } from '@/components/admin/DataTable';
 import { Modal } from '@/components/admin/Modal';
 import { ImageUpload } from '@/components/admin/ImageUpload';
 import { formatDateTime } from '@/utils/formatters';
+import { getCategoryImageUrl } from '@/utils/imageHelper'; // ✅ THÊM import
 import toast from 'react-hot-toast';
+
+// ✅ THÊM: Component cho category image cell
+const CategoryImageCell: React.FC<{ imageUrl: string }> = ({ imageUrl }) => {
+  const [error, setError] = React.useState(false);
+  const [loaded, setLoaded] = React.useState(false);
+
+  const handleError = React.useCallback((e: React.SyntheticEvent<HTMLImageElement>) => {
+    if (!error) {
+      setError(true);
+      e.currentTarget.src = '/placeholder-category.jpg';
+    }
+  }, [error]);
+
+  const src = error ? '/placeholder-category.jpg' : getCategoryImageUrl(imageUrl);
+
+  return imageUrl ? (
+    <div className="relative h-12 w-12">
+      {!loaded && (
+        <div className="absolute inset-0 bg-gray-200 rounded animate-pulse" />
+      )}
+      <img
+        src={src}
+        alt="Category"
+        className={`h-12 w-12 object-cover rounded transition-opacity duration-200 ${
+          loaded ? 'opacity-100' : 'opacity-0'
+        }`}
+        onError={handleError}
+        onLoad={() => setLoaded(true)}
+        loading="lazy"
+      />
+    </div>
+  ) : (
+    <div className="h-12 w-12 bg-gray-200 rounded flex items-center justify-center">
+      <span className="text-xs text-gray-500">No img</span>
+    </div>
+  );
+};
 
 export const AdminCategoriesPage: React.FC = () => {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -110,27 +151,13 @@ export const AdminCategoriesPage: React.FC = () => {
     }
   };
 
+  // ✅ SỬA: columns với component riêng cho image
   const columns = [
     { key: 'id', label: 'ID' },
     {
       key: 'imageUrl',
       label: 'Hình ảnh',
-      render: (value: string) => (
-        value ? (
-          <img 
-            src={value.startsWith('http') ? value : `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api'}${value}`} 
-            alt="Category" 
-            className="h-12 w-12 object-cover rounded"
-            onError={(e) => {
-              e.currentTarget.src = '/placeholder-category.jpg';
-            }}
-          />
-        ) : (
-          <div className="h-12 w-12 bg-gray-200 rounded flex items-center justify-center">
-            <span className="text-xs text-gray-500">No img</span>
-          </div>
-        )
-      ),
+      render: (value: string) => <CategoryImageCell imageUrl={value} />,
     },
     { key: 'name', label: 'Tên danh mục' },
     { key: 'description', label: 'Mô tả' },
@@ -185,10 +212,7 @@ export const AdminCategoriesPage: React.FC = () => {
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Image Upload */}
           <ImageUpload
-            currentImage={formData.imageUrl ? 
-              (formData.imageUrl.startsWith('http') ? formData.imageUrl : `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api'}${formData.imageUrl}`) 
-              : undefined
-            }
+            currentImage={formData.imageUrl ? getCategoryImageUrl(formData.imageUrl) : undefined}
             onImageSelect={handleImageSelect}
             onImageRemove={handleImageRemove}
             label="Logo danh mục"

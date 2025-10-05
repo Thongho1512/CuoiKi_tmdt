@@ -1,3 +1,6 @@
+// src/pages/ProductsPage.tsx
+// ✅ SỬA: Logic lọc theo category và filters
+
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Product, PageResponse } from '@/types';
@@ -15,29 +18,51 @@ export const ProductsPage: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(0);
 
   const searchQuery = searchParams.get('search');
-  const categoryId = searchParams.get('category');
+  const categoryIdParam = searchParams.get('category');
   const debouncedSearch = useDebounce(searchQuery || '', 500);
+
+  // ✅ SỬA: useEffect để sync categoryId từ URL vào filters
+  useEffect(() => {
+    if (categoryIdParam) {
+      setFilters((prev: any) => ({
+        ...prev,
+        categoryId: parseInt(categoryIdParam),
+      }));
+    }
+  }, [categoryIdParam]);
 
   useEffect(() => {
     fetchProducts();
-  }, [currentPage, filters, debouncedSearch, categoryId]);
+  }, [currentPage, filters, debouncedSearch, categoryIdParam]);
 
   const fetchProducts = async () => {
     setLoading(true);
     try {
       let data;
       
+      // ✅ SỬA: Ưu tiên search, sau đó category từ URL, cuối cùng là filters
       if (debouncedSearch) {
         data = await productApi.search(debouncedSearch, currentPage, 12);
-      } else if (categoryId) {
+      } else if (categoryIdParam) {
+        // Lọc theo category từ URL (khi click từ HomePage)
         data = await productApi.getByCategory(
-          parseInt(categoryId),
+          parseInt(categoryIdParam),
+          currentPage,
+          12,
+          filters.sortBy || 'id',
+          filters.sortDir || 'DESC'
+        );
+      } else if (filters.categoryId) {
+        // Lọc theo category từ ProductFilter
+        data = await productApi.getByCategory(
+          filters.categoryId,
           currentPage,
           12,
           filters.sortBy || 'id',
           filters.sortDir || 'DESC'
         );
       } else if (filters.minPrice && filters.maxPrice) {
+        // Lọc theo khoảng giá
         data = await productApi.getByPriceRange(
           filters.minPrice,
           filters.maxPrice,
@@ -45,6 +70,7 @@ export const ProductsPage: React.FC = () => {
           12
         );
       } else {
+        // Lấy tất cả với sort
         data = await productApi.getAll(
           currentPage,
           12,
@@ -64,6 +90,12 @@ export const ProductsPage: React.FC = () => {
   const handleFilterChange = (newFilters: any) => {
     setFilters(newFilters);
     setCurrentPage(0);
+    
+    // ✅ THÊM: Xóa category từ URL khi filter thay đổi
+    if (categoryIdParam && newFilters.categoryId !== parseInt(categoryIdParam)) {
+      searchParams.delete('category');
+      setSearchParams(searchParams);
+    }
   };
 
   const handlePageChange = (page: number) => {

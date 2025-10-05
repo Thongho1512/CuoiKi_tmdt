@@ -1,3 +1,6 @@
+// src/pages/admin/AdminProductsPage.tsx
+// ✅ CHỈ SỬA: Phần render image trong columns
+
 import React, { useEffect, useState } from 'react';
 import { PlusIcon } from '@heroicons/react/24/outline';
 import { Product, ProductRequest, Category, PageResponse } from '@/types';
@@ -9,8 +12,46 @@ import { Modal } from '@/components/admin/Modal';
 import { ImageUpload } from '@/components/admin/ImageUpload';
 import { Pagination } from '@/components/common/Pagination';
 import { formatCurrency, formatDateTime } from '@/utils/formatters';
+import { getImageUrl } from '@/utils/imageHelper'; // ✅ THÊM import
 import { useDebounce } from '@/hooks/useDebounce';
 import toast from 'react-hot-toast';
+
+// ✅ THÊM: Component cho image cell
+const ProductImageCell: React.FC<{ imageUrl: string }> = ({ imageUrl }) => {
+  const [error, setError] = React.useState(false);
+  const [loaded, setLoaded] = React.useState(false);
+
+  const handleError = React.useCallback((e: React.SyntheticEvent<HTMLImageElement>) => {
+    if (!error) {
+      setError(true);
+      e.currentTarget.src = '/placeholder-phone.jpg';
+    }
+  }, [error]);
+
+  const src = error ? '/placeholder-phone.jpg' : getImageUrl(imageUrl);
+
+  return imageUrl ? (
+    <div className="relative h-16 w-16">
+      {!loaded && (
+        <div className="absolute inset-0 bg-gray-200 rounded animate-pulse" />
+      )}
+      <img
+        src={src}
+        alt="Product"
+        className={`h-16 w-16 object-cover rounded transition-opacity duration-200 ${
+          loaded ? 'opacity-100' : 'opacity-0'
+        }`}
+        onError={handleError}
+        onLoad={() => setLoaded(true)}
+        loading="lazy"
+      />
+    </div>
+  ) : (
+    <div className="h-16 w-16 bg-gray-200 rounded flex items-center justify-center">
+      <span className="text-xs text-gray-500">No img</span>
+    </div>
+  );
+};
 
 export const AdminProductsPage: React.FC = () => {
   const [products, setProducts] = useState<PageResponse<Product> | null>(null);
@@ -173,27 +214,13 @@ export const AdminProductsPage: React.FC = () => {
     }
   };
 
+  // ✅ SỬA: columns với component riêng cho image
   const columns = [
     { key: 'id', label: 'ID' },
     {
       key: 'imageUrl',
       label: 'Hình ảnh',
-      render: (value: string) => (
-        value ? (
-          <img 
-            src={value.startsWith('http') ? value : `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api'}${value}`} 
-            alt="Product" 
-            className="h-16 w-16 object-cover rounded"
-            onError={(e) => {
-              e.currentTarget.src = '/placeholder-phone.jpg';
-            }}
-          />
-        ) : (
-          <div className="h-16 w-16 bg-gray-200 rounded flex items-center justify-center">
-            <span className="text-xs text-gray-500">No img</span>
-          </div>
-        )
-      ),
+      render: (value: string) => <ProductImageCell imageUrl={value} />,
     },
     { 
       key: 'name', 
@@ -295,10 +322,7 @@ export const AdminProductsPage: React.FC = () => {
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Image Upload */}
           <ImageUpload
-            currentImage={formData.imageUrl ? 
-              (formData.imageUrl.startsWith('http') ? formData.imageUrl : `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api'}${formData.imageUrl}`) 
-              : undefined
-            }
+            currentImage={formData.imageUrl ? getImageUrl(formData.imageUrl) : undefined}
             onImageSelect={handleImageSelect}
             onImageRemove={handleImageRemove}
             label="Hình ảnh sản phẩm"
